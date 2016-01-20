@@ -1,122 +1,202 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>胰岛素</title>
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-        <link rel="shortcut icon" href="/favicon.ico">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>胰岛素</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-        <link rel="stylesheet" href="css/light7.min.css">
-        <!--<link rel="stylesheet" href="/your-css-file.css">-->
-    </head>
-    <body>
-        <!-- 你的html代码 -->
+    <link rel="stylesheet" href="css/light7.min.css">
+    <!--<link rel="stylesheet" href="/your-css-file.css">-->
+</head>
+<body>
+    <!-- 你的html代码 -->
 
-        <div class="page">
-            <div class="content">
-                <div class="list-block">
-                    <ul>
-                        <!-- Text inputs -->
-                        <li>
-                            <div class="item-content">
-                                <div class="item-media"><i class="icon icon-form-name"></i></div>
-                                <div class="item-inner">
-                                    <div class="item-title label">当前的BG</div>
-                                    <div class="item-input">
-                                        <input type="number" placeholder="当前的BG">
-                                    </div>
+    <div class="page">
+        <div class="content">
+            <div class="list-block">
+                <ul>
+                    <!-- Text inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">当前的BG</div>
+                                <div class="item-input">
+                                    <input type="number" placeholder="当前的BG" id="cur-BG">
                                 </div>
                             </div>
-                        </li>
-                        <li>
-                            <div class="item-content">
-                                <div class="item-media"><i class="icon icon-form-email"></i></div>
-                                <div class="item-inner">
-                                    <div class="item-title label">现在的时间</div>
-                                    <div class="item-input">
-                                        <input type="time" placeholder="时间" id="picker">
-                                    </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-email"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">现在的时间</div>
+                                <div class="item-input">
+                                    <input type="time" placeholder="时间" id="picker">
                                 </div>
                             </div>
-                        </li>
-                        <li>
-                            <div class="item-content">
-                                <div class="item-media"><i class="icon icon-form-name"></i></div>
-                                <div class="item-inner">
-                                    <div class="item-title label">之前的BG</div>
-                                    <div class="item-input">
-                                        <input type="number" placeholder="当前的BG">
-                                    </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">之前的BG</div>
+                                <div class="item-input">
+                                    <input type="number" placeholder="之前的BG" id="pre-BG">
                                 </div>
                             </div>
-                        </li>
-                        <li>
-                            <div class="item-content">
-                                <div class="item-media"><i class="icon icon-form-email"></i></div>
-                                <div class="item-inner">
-                                    <div class="item-title label">之前的时间</div>
-                                    <div class="item-input">
-                                        <input type="time" placeholder="时间" id="picker2">
-                                    </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-email"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">之前的时间</div>
+                                <div class="item-input">
+                                    <input type="time" placeholder="时间" id="picker2">
                                 </div>
                             </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="content-block">
-                    <div class="row">
-                        <div class="col-50"><a href="#" class="button button-big button-fill button-success">Submit</a></div>
-                    </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-email"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">当前的泵速</div>
+                                <div class="item-input">
+                                    <input type="number" placeholder="当前的泵速" id = "cur-speed">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-email"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">调整的泵速</div>
+                                <div class="item-title label" id="fix-speed">10</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-block">
+                <div class="row">
+                    <div class="col-50"><a onclick="getSubmit()" class="button button-big button-fill button-success">计算</a></div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!--<script src="/your-js-file.js"></script>-->
-        <script type='text/javascript' src='js/zepto.js' charset='utf-8'></script>
-        <script type='text/javascript' src='js/light7.min.js' charset='utf-8'> </script>
-        <input type="text" id='picker'/>
-<script>
-$("#picker").picker({
-  toolbarTemplate: '<header class="bar bar-nav">\
-  <button class="button button-link pull-right close-picker">OK</button>\
-  <h1 class="title">Title</h1>\
-  </header>',
-  cols: [
-    {
-      textAlign: 'right',
-      values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+    <!--<script src="/your-js-file.js"></script>-->
+    <script type='text/javascript' src='js/zepto.js' charset='utf-8'></script>
+    <script type='text/javascript' src='js/light7.min.js' charset='utf-8'> </script>
+    <input type="text" id='picker'/>
+    <script>
+        var BGDeltaLevel = [
+        [-200.0, -200.0, 0.0, -1.38],
+        [-200.0, 1.38, -1.38, -2.78],
+        [2.78, 0,  -2.78, -4.16],
+        [0, -1.38,  -4.16, -5.5],
+        ]
+
+        var InsultLevel = [3.0, 6.5, 10, 15, 20, 25]
+        var InsultDelta = [0.5, 1.0, 1.5, 2, 3, 4, 5]
+        var BGLevel = [5.6, 7.8, 11.1]
+        var getSubmit = function(){
+            var curBG = parseFloat($("#cur-BG").val())
+            var preBG = parseFloat($("#pre-BG").val())
+            var curspeed = parseFloat($("#cur-speed").val())
+            var curtime = $("#picker").val().split(" ")
+            var pretime = $("#picker").val().split(" ")
+            curtime[0] = parseInt(curtime[0])
+            curtime[1] = parseInt(curtime[1])
+            pretime[0] = parseInt(pretime[0])
+            pretime[1] = parseInt(pretime[1])
+            if (curtime[1] < pretime[1]) {
+                curtime[1] = curtime[1] + 60
+                curtime[0] = curtime[0] - 1
+            }
+
+            var hour = (curtime[0] - pretime[0]) + (curtime[1] - pretime[1]) / 60.0
+            var bgLevel = 0
+            for (var i = BGLevel.length - 1; i >= 0; i--) {
+                if (curBG > BGLevel[i]) {
+                    bgLevel = i
+                    break
+                }
+            };
+            var bgDeltaLevel = BGDeltaLevel[bgLevel]
+            var bgDelta = (curBG - preBG) / hour
+            var speedLevel = -1
+            for (var i = 0 ;  i < bgDeltaLevel.length; i++) {
+                if (bgDeltaLevel[i] != -200 && bgDelta > bgDeltaLevel[i]){
+                    speedLevel = 4 - i
+                    break
+                }
+            };
+            if (speedLevel == -1 && bgDelta < bgDeltaLevel[4]){
+                speedLevel = 0
+            }
+            var level = 6
+            for (var i = 0; i < InsultLevel.length; i++) {
+                if (curspeed < InsultLevel[i]){
+                    level = i
+                    break
+                }
+            };
+
+            if (level == 6){
+                $("#fix-speed").text(">=" + (curspeed + (speedLevel - 2) * InsultDelta[level]))
+            }else{
+                $("#fix-speed").text(curspeed + (speedLevel - 2) * InsultDelta[level])
+            }
+        }
+
+        $("#picker").picker({
+          toolbarTemplate: '<header class="bar bar-nav">\
+          <button class="button button-link pull-right close-picker">OK</button>\
+          <h1 class="title">Title</h1>\
+      </header>',
+      cols: [
+      {
+          textAlign: 'right',
+          values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
       },
-    {
-      textAlign: 'left',
-      values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
+      {
+          textAlign: 'left',
+          values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
       }
 
-  ]
-});
-$("#picker2").picker({
-  toolbarTemplate: '<header class="bar bar-nav">\
-  <button class="button button-link pull-left">Button</button>\
-  <button class="button button-link pull-right close-picker">OK</button>\
-  <h1 class="title">Title</h1>\
-  </header>',
-  cols: [
-    {
-      textAlign: 'right',
-      values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+      ]
+  });
+        $("#picker2").picker({
+          toolbarTemplate: '<header class="bar bar-nav">\
+          <button class="button button-link pull-left">Button</button>\
+          <button class="button button-link pull-right close-picker">OK</button>\
+          <h1 class="title">Title</h1>\
+      </header>',
+      cols: [
+      {
+          textAlign: 'right',
+          values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
       },
-    {
-      textAlign: 'left',
-      values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
+      {
+          textAlign: 'left',
+          values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
       }
 
-  ]
-});
+      ]
+  });
 </script>
 
 
-    </body>
+</body>
 </html>
 
