@@ -108,7 +108,7 @@
                 }
             };
             var bgDeltaLevel = BGDeltaLevel[bgLevel]
-            var bgDelta = (curBG - preBG) / hour
+            var bgDelta = (-curBG + preBG) / hour
             var speedLevel = -1
             for (var i = 0 ;  i < bgDeltaLevel.length; i++) {
                 if (bgDeltaLevel[i] != -200 && bgDelta > bgDeltaLevel[i]){
