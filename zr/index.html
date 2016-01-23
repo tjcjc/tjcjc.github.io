@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0034)http://jasonread.benmangguo.com/zr -->
-<html class="pixel-ratio-2 retina"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html class="pixel-ratio-2 retina"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>胰岛素</title>
@@ -15,7 +16,15 @@
 <body>
     <!-- 你的html代码 -->
 
-    <div class="page page-current" id="page-1453282960157">
+        <nav class="bar bar-tab">
+          <a class="tab-item active no-transition replace" href="#page-yidao">
+            胰岛素
+          </a>
+          <a class="tab-item no-transition replace" href="#page-bbf">
+            丙泊酚
+          </a>
+      </nav>
+    <div class="page page-current page-yidao" id="page-yidao">
         <div class="content">
             <div class="list-block">
                 <ul>
@@ -64,7 +73,7 @@
                         <div class="item-content">
                             <div class="item-inner">
                                 <div class="item-title label">调整后的泵速</div>
-                                <div class="item-title label" id="fix-speed">10</div>
+                                <div class="item-title" id="fix-speed"></div>
                             </div>
                         </div>
                     </li>
@@ -77,12 +86,57 @@
             </div>
         </div>
     </div>
+    <div class="page page-bbf" id="page-bbf">
+        <div class="content">
+            <div class="list-block">
+                <ul>
+                    <!-- Text inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">病人体重</div>
+                                <div class="item-input">
+                                    <input type="number" placeholder="病人体重" id="cur-KG">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">负荷剂量</div>
+                                <div class="item-title label" id="fuhe-val">0</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">维持剂量</div>
+                                <div class="item-title label" id="weichi-val">0</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-block">
+                <div class="row">
+                    <div class="col-50"><a onclick="getKG()" class="button button-big button-fill button-success">计算</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--<script src="/your-js-file.js"></script>-->
     <script type="text/javascript" src="./胰岛素_files/zepto.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./胰岛素_files/light7.min.js" charset="utf-8"> </script>
+    <script type="text/javascript" src="./胰岛素_files/light7.js" charset="utf-8"> </script>
     <input type="text" id="picker">
     <script>
+        var getKG = function(){
+            var val = parseFloat($("#cur-KG").val())
+            $("#fuhe-val").text(0.1 * val + "-" + 0.3 * val + " ml")
+            $("#weichi-val").text(0.05 * val + "-" + 0.4 * val + " ml/h")
+        }
         var BGDeltaLevel = [
         [-200.0, -200.0, 0.0, -1.38],
         [-200.0, 1.38, -1.38, -2.78],
@@ -100,6 +154,10 @@
             var timeStr = $("#picker2").val().split(" ")
 
             var hour = parseInt(timeStr[0]) + parseFloat(timeStr[2]) / 60.0
+            if(hour == 0){
+                $("#fix-speed").text((curBG * 18 / 100) / 2)
+                return;
+            }
             var bgLevel = 0
             for (var i = BGLevel.length - 1; i >= 0; i--) {
                 if (curBG > BGLevel[i]) {
@@ -126,6 +184,12 @@
                     break
                 }
             };
+
+            // 4.16-5.5 并且 下降大于1.38
+            if(parseInt(bgLevel) == 0 && parseInt(speedLevel) == 0){
+                $("#fix-speed").text("停至血糖大于5.5，以泵速" + curspeed * 0.75 + "注射")
+                return;
+            }
 
             var fixInsluint = ""
             if (level == 6){
@@ -179,5 +243,6 @@
         $("#picker2").val("0 : 0")
         $("#picker2").picker("setValue", ["0", ":", "0"])
 </script>
+</body>
 
 
