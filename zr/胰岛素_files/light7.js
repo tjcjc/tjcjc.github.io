@@ -5222,7 +5222,7 @@ Device/OS Detection
   }
 
   Router.prototype.replaceState = function(url, id) {
-    history.replaceState({url: url, id: id}, '', url);
+    // history.replaceState({url: url, id: id}, '', url);
   }
 
   Router.prototype.onpopstate = function(d) {
