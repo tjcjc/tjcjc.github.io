@@ -16,8 +16,8 @@
   
   <entry>
     <title></title>
-    <link href="http://yoursite.com/2016/01/30/ruby%20ssl%20connect%20error/"/>
-    <id>http://yoursite.com/2016/01/30/ruby ssl connect error/</id>
+    <link href="http://yoursite.com/2016/01/30/ruby_ssl_connect_error/"/>
+    <id>http://yoursite.com/2016/01/30/ruby_ssl_connect_error/</id>
     <published>2016-01-29T17:31:49.000Z</published>
     <updated>2016-01-29T17:31:49.000Z</updated>
     <content type="html"><![CDATA[<h1 id="SSL_connect_returned_3D1_errno_3D0_state_3DSSLv3_read_server_certificate_B_3A_certificate_verify_failed"><a href="#SSL_connect_returned_3D1_errno_3D0_state_3DSSLv3_read_server_certificate_B_3A_certificate_verify_failed" class="headerlink" title="SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed"></a>SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed</h1><h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><hr>
