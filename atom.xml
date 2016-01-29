@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-01-29T17:31:49.000Z</updated>
+  <updated>2016-01-29T17:37:11.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title><![CDATA[ruby SSL_connect error]]></title>
     <link href="http://yoursite.com/2016/01/30/ruby_ssl_connect_error/"/>
     <id>http://yoursite.com/2016/01/30/ruby_ssl_connect_error/</id>
-    <published>2016-01-29T17:31:49.000Z</published>
-    <updated>2016-01-29T17:31:49.000Z</updated>
+    <published>2016-01-29T17:37:11.000Z</published>
+    <updated>2016-01-29T17:37:11.000Z</updated>
     <content type="html"><![CDATA[<h1 id="SSL_connect_returned_3D1_errno_3D0_state_3DSSLv3_read_server_certificate_B_3A_certificate_verify_failed"><a href="#SSL_connect_returned_3D1_errno_3D0_state_3DSSLv3_read_server_certificate_B_3A_certificate_verify_failed" class="headerlink" title="SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed"></a>SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed</h1><h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><hr>
 <p>其实这个问题，先前就已经碰到过了。<br>这个问题是ruby在请求https的地址时候，找不到Certificate Authority (CA) bundle。就是一个<em>.pem</em>文件。默认的访问地址是<code>/usr/local/etc/cacert.pem</code>，如果你没有这个文件，或者这个文件有问题，都会报这个错误。<br>当时是在mac上，之前的解决办法是<a href="http://stackoverflow.com/questions/4528101/ssl-connect-returned-1-errno-0-state-sslv3-read-server-certificate-b-certificat" target="_blank" rel="external">参考链接</a>。</p>
 <ul>
