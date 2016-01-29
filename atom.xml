@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-01-29T17:37:11.000Z</updated>
+  <updated>2016-01-29T17:53:34.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,8 +18,8 @@
     <title><![CDATA[ruby SSL_connect error]]></title>
     <link href="http://yoursite.com/2016/01/30/ruby_ssl_connect_error/"/>
     <id>http://yoursite.com/2016/01/30/ruby_ssl_connect_error/</id>
-    <published>2016-01-29T17:37:11.000Z</published>
-    <updated>2016-01-29T17:37:11.000Z</updated>
+    <published>2016-01-29T17:53:34.000Z</published>
+    <updated>2016-01-29T17:53:34.000Z</updated>
     <content type="html"><![CDATA[<h1 id="SSL_connect_returned_3D1_errno_3D0_state_3DSSLv3_read_server_certificate_B_3A_certificate_verify_failed"><a href="#SSL_connect_returned_3D1_errno_3D0_state_3DSSLv3_read_server_certificate_B_3A_certificate_verify_failed" class="headerlink" title="SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed"></a>SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed</h1><h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><hr>
 <p>其实这个问题，先前就已经碰到过了。<br>这个问题是ruby在请求https的地址时候，找不到Certificate Authority (CA) bundle。就是一个<em>.pem</em>文件。默认的访问地址是<code>/usr/local/etc/cacert.pem</code>，如果你没有这个文件，或者这个文件有问题，都会报这个错误。<br>当时是在mac上，之前的解决办法是<a href="http://stackoverflow.com/questions/4528101/ssl-connect-returned-1-errno-0-state-sslv3-read-server-certificate-b-certificat" target="_blank" rel="external">参考链接</a>。</p>
 <ul>
@@ -60,7 +60,7 @@
 <li>JKS</li>
 </ol>
 <h4 id="u8BC1_u4E66_u83B7_u53D6_u529E_u6CD5"><a href="#u8BC1_u4E66_u83B7_u53D6_u529E_u6CD5" class="headerlink" title="证书获取办法"></a>证书获取办法</h4><p><strong>向权威证书颁发机构申请证书</strong><br>用这命令生成一个csr: <code>openssl req -newkey rsa:2048 -new -nodes -keyout my.key -out my.csr</code><br>把csr交给权威证书颁发机构,权威证书颁发机构对此进行签名,完成.保留好csr,当权威证书颁发机构颁发的证书过期的时候,你还可以用同样的csr来申请新的证书,key保持不变.</p>
-<p><strong>生成自签名的证书</strong><br><code>openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem</code><br>在生成证书的过程中会要你填一堆的东西,其实真正要填的只有Common Name,通常填写你服务器的域名,如”yourcompany.com”,或者你服务器的IP地址,其它都可以留空的.</p>
+<p><strong>生成自签名的证书</strong><br><code>openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem</code><br>在生成证书的过程中会要你填一堆的东西,其实真正要填的只有Common Name,通常填写你服务器的域名,如”yourcompany.com”,或者你服务器的IP地址,其它都可以留空的. </p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="SSL_connect_returned_3D1_errno_3D0_state_3DSSLv3_read_server_certificate_B_3A_certificate_verify_failed"><a href="#SSL_connect_retur]]>

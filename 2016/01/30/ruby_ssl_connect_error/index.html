@@ -69,7 +69,7 @@
 <meta property="og:site_name" content="Jason Read">
 <meta property="og:description" content="SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failedMac
 其实这个问题，先前就已经碰到过了。这个问题是ruby在请求https的地址时候，找不到Certificate Authority (CA) bundle。就是一个.pem文件。默认的访问地址是/usr/">
-<meta property="og:updated_time" content="2016-01-29T17:37:11.000Z">
+<meta property="og:updated_time" content="2016-01-29T17:53:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ruby SSL_connect error">
 <meta name="twitter:description" content="SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failedMac
@@ -221,7 +221,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-30T01:37:11+08:00" content="2016-01-30">
+            <time itemprop="dateCreated" datetime="2016-01-30T01:53:34+08:00" content="2016-01-30">
               2016-01-30
             </time>
           </span>
@@ -294,7 +294,7 @@
 <li>JKS</li>
 </ol>
 <h4 id="u8BC1_u4E66_u83B7_u53D6_u529E_u6CD5"><a href="#u8BC1_u4E66_u83B7_u53D6_u529E_u6CD5" class="headerlink" title="证书获取办法"></a>证书获取办法</h4><p><strong>向权威证书颁发机构申请证书</strong><br>用这命令生成一个csr: <code>openssl req -newkey rsa:2048 -new -nodes -keyout my.key -out my.csr</code><br>把csr交给权威证书颁发机构,权威证书颁发机构对此进行签名,完成.保留好csr,当权威证书颁发机构颁发的证书过期的时候,你还可以用同样的csr来申请新的证书,key保持不变.</p>
-<p><strong>生成自签名的证书</strong><br><code>openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem</code><br>在生成证书的过程中会要你填一堆的东西,其实真正要填的只有Common Name,通常填写你服务器的域名,如”yourcompany.com”,或者你服务器的IP地址,其它都可以留空的.</p>
+<p><strong>生成自签名的证书</strong><br><code>openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem</code><br>在生成证书的过程中会要你填一堆的东西,其实真正要填的只有Common Name,通常填写你服务器的域名,如”yourcompany.com”,或者你服务器的IP地址,其它都可以留空的. </p>
 
       
     </div>
