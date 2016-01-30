@@ -59,19 +59,16 @@
 
 
 
-<meta name="description" content="SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failedMac
-其实这个问题，先前就已经碰到过了。这个问题是ruby在请求https的地址时候，找不到Certificate Authority (CA) bundle。就是一个.pem文件。默认的访问地址是/usr/">
+<meta name="description" content="jasonread.benmangguo.com">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ruby SSL_connect error">
-<meta property="og:url" content="http://yoursite.com/2016/01/30/ruby_ssl_connect_error/index.html">
+<meta property="og:title" content="Jason Read">
+<meta property="og:url" content="http://yoursite.com/2016/01/30/CNAME/index.html">
 <meta property="og:site_name" content="Jason Read">
-<meta property="og:description" content="SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failedMac
-其实这个问题，先前就已经碰到过了。这个问题是ruby在请求https的地址时候，找不到Certificate Authority (CA) bundle。就是一个.pem文件。默认的访问地址是/usr/">
-<meta property="og:updated_time" content="2016-01-30T05:28:26.000Z">
+<meta property="og:description" content="jasonread.benmangguo.com">
+<meta property="og:updated_time" content="2016-01-30T02:06:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ruby SSL_connect error">
-<meta name="twitter:description" content="SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failedMac
-其实这个问题，先前就已经碰到过了。这个问题是ruby在请求https的地址时候，找不到Certificate Authority (CA) bundle。就是一个.pem文件。默认的访问地址是/usr/">
+<meta name="twitter:title" content="Jason Read">
+<meta name="twitter:description" content="jasonread.benmangguo.com">
 
 
 
@@ -89,7 +86,7 @@
   };
 </script>
 
-  <title> ruby SSL_connect error | Jason Read </title>
+  <title>  | Jason Read </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -207,7 +204,7 @@
             
             
               
-                ruby SSL_connect error
+                
               
             
           </h1>
@@ -219,7 +216,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-30T13:28:27+08:00" content="2016-01-30">
+            <time itemprop="dateCreated" datetime="2016-01-30T10:06:11+08:00" content="2016-01-30">
               2016-01-30
             </time>
           </span>
@@ -230,8 +227,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/30/ruby_ssl_connect_error/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/30/ruby_ssl_connect_error/" itemprop="commentsCount"></span>
+                <a href="/2016/01/30/CNAME/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/30/CNAME/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -252,48 +249,7 @@
       
 
       
-        <h1 id="SSL_connect_returned_3D1_errno_3D0_state_3DSSLv3_read_server_certificate_B_3A_certificate_verify_failed"><a href="#SSL_connect_returned_3D1_errno_3D0_state_3DSSLv3_read_server_certificate_B_3A_certificate_verify_failed" class="headerlink" title="SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed"></a>SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed</h1><h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><hr>
-<p>其实这个问题，先前就已经碰到过了。<br>这个问题是ruby在请求https的地址时候，找不到Certificate Authority (CA) bundle。就是一个<em>.pem</em>文件。默认的访问地址是<code>/usr/local/etc/cacert.pem</code>，如果你没有这个文件，或者这个文件有问题，都会报这个错误。<br>当时是在mac上，之前的解决办法是<a href="http://stackoverflow.com/questions/4528101/ssl-connect-returned-1-errno-0-state-sslv3-read-server-certificate-b-certificat" target="_blank" rel="external">参考链接</a>。</p>
-<ul>
-<li>sudo port install curl-ca-bundle</li>
-<li>或者是直接wget下载wget <a href="http://curl.haxx.se/ca/cacert.pem" target="_blank" rel="external">http://curl.haxx.se/ca/cacert.pem</a></li>
-<li>下载好这个文件之后，<code>export SSL_CERT_FILE=/path/to/cert.pem</code>添加到bashConfig中。如果还是有问题，记得打印<strong>ENV[‘SSL_CERT_FILE’]</strong>，到底是不是指向你的文件。</li>
-<li>如果还是不行的：rvm reinstall ruby –disable-binary</li>
-</ul>
-<h3 id="Centos"><a href="#Centos" class="headerlink" title="Centos"></a>Centos</h3><hr>
-<p>今天我又在Centos下面碰到了相同的问题，实在调用RestClient的时候报的错。就直接去搜索这个问题，然后发现有多个原因会导致这个问题，尝试了所有的解决办法，发现跟之前的原因其实是一样的，就是没有在环境中设置正确的<strong>SSL_CERT_FILE</strong>。<br>不过还是把一些没有解决我问题的解决方案全都列出来。兴许以后会遇到。</p>
-<h4 id="1-__u76F4_u63A5_u653E_u5F03_u9A8C_u8BC1"><a href="#1-__u76F4_u63A5_u653E_u5F03_u9A8C_u8BC1" class="headerlink" title="1. 直接放弃验证"></a>1. 直接放弃验证</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'openssl'</span></span><br><span class="line"><span class="constant">OpenSSL::SSL::VERIFY_PEER</span> = <span class="constant">OpenSSL::SSL::VERIFY_NONE</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-_u91CD_u65B0_u8BA9rvm_u5B89_u88C5openssl"><a href="#2-_u91CD_u65B0_u8BA9rvm_u5B89_u88C5openssl" class="headerlink" title="2.重新让rvm安装openssl"></a>2.重新让rvm安装openssl</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rvm pkg install openssl</span><br><span class="line"><span class="comment">#安装完openssl之后，需要重新安装ruby</span></span><br><span class="line">rvm reinstall <span class="number">2.1</span>.<span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h4 id="3-_u7531_u4E8Ervm_u4F1A_u9884_u7F16_u8BD1ruby_uFF0C_u800C_u4F7F_u5F97ruby_u627E_u4E00_u4E2A_u9519_u8BEF_u7684cert_u6587_u4EF6"><a href="#3-_u7531_u4E8Ervm_u4F1A_u9884_u7F16_u8BD1ruby_uFF0C_u800C_u4F7F_u5F97ruby_u627E_u4E00_u4E2A_u9519_u8BEF_u7684cert_u6587_u4EF6" class="headerlink" title="3.由于rvm会预编译ruby，而使得ruby找一个错误的cert文件"></a>3.由于rvm会预编译ruby，而使得ruby找一个错误的cert文件</h4><p>这里主要参考了这个<a href="http://toadle.me/2015/04/16/fixing-failing-ssl-verification-with-rvm.html" target="_blank" rel="external">参考地址</a></p>
-<ol>
-<li>可以使用这个<a href="https://github.com/mislav/ssl-tools" target="_blank" rel="external">ssl-tools</a>来验证，是不是这个问题。</li>
-<li><code>wget https://github.com/mislav/ssl-tools&amp;&amp;cdssl-tools</code></li>
-<li><code>ruby doctor.rb accounts.google.com:443</code>，如果返回<strong>error code 20: unable to get local issuer certificate</strong>。那可能就是这个问题导致的。</li>
-<li>解决办法就是<strong>重新安装ruby</strong><code>rvm install 2.2.0 --disable-binary</code></li>
-<li><code>ruby doctor.rb accounts.google.com:443</code>，这个时候应该返回ok了。</li>
-</ol>
-<h4 id="4-_u6700_u540E_u7684_u529E_u6CD5"><a href="#4-_u6700_u540E_u7684_u529E_u6CD5" class="headerlink" title="4.最后的办法"></a>4.最后的办法</h4><p>第三种办法，可能最后返回ok了，但是再换一个网站，比如微信的api地址<strong>‘<a href="https://api.mch.weixin.qq.com" target="_blank" rel="external">https://api.mch.weixin.qq.com</a></strong>，可能还是继续最开的那个SSL_Connect的错误。根据问题的描述，其实就是没有合法的ca文件，因为ruby默认去<code>/usr/local/etc/cacert.pem</code>这个地址找，即便是在CentOs上面，他也是去找这个地址。</p>
-<ol>
-<li>所以我就用Mac上的办法，下载新的cert文件，并且做了一个引用，连接到<code>/usr/local/etc/cacert.pem</code>。但是<strong>没有用</strong>。</li>
-<li>然后发现CentOs的openssl其实是安装在<code>/etc/pki/tls/</code>这个地址的。他的证书其实是<strong>/etc/pki/tls/certs/ca-bundle.crt</strong>。</li>
-<li>所以在ruby请求https之前设置<code>ENV[&quot;SSL_CERT_FILE&quot;]=/etc/pki/tls/certs/ca-bundle.crt</code>，<strong>问题顺利解决。</strong></li>
-</ol>
-<h3 id="u8BC1_u4E66_u5230_u5E95_u7528_u54EA_u4E2A_u53C2_u8003_u94FE_u63A5"><a href="#u8BC1_u4E66_u5230_u5E95_u7528_u54EA_u4E2A_u53C2_u8003_u94FE_u63A5" class="headerlink" title="证书到底用哪个参考链接"></a>证书到底用哪个<a href="http://www.cnblogs.com/guogangj/p/4118605.html" target="_blank" rel="external">参考链接</a></h3><hr>
-<h4 id="u7F16_u7801_u683C_u5F0F"><a href="#u7F16_u7801_u683C_u5F0F" class="headerlink" title="编码格式"></a>编码格式</h4><ol>
-<li><strong>PEM</strong> - Privacy Enhanced Mail,打开看文本格式,以”—–BEGIN…”开头, “—–END…”结尾,内容是BASE64编码。查看PEM格式证书的信息:openssl x509 -in certificate.pem -text -noout。Apache和*NIX服务器偏向于使用这种编码格式.</li>
-<li><strong>DER</strong> - Distinguished Encoding Rules,打开看是二进制格式,不可读。查看DER格式证书的信息:openssl x509 -in certificate.der -inform der -text -noout。Java和Windows服务器偏向于使用这种编码格式.</li>
-</ol>
-<h4 id="u6587_u4EF6_u6269_u5C55_u540D"><a href="#u6587_u4EF6_u6269_u5C55_u540D" class="headerlink" title="文件扩展名"></a>文件扩展名</h4><p>这是比较误导人的地方,虽然我们已经知道有PEM和DER这两种编码格式,但文件扩展名并不一定就叫”PEM”或者”DER”,常见的扩展名除了PEM和DER还有以下这些,它们除了编码格式可能不同之外,内容也有差别,但大多数都能相互转换编码格式.</p>
-<ol>
-<li>CRT</li>
-<li>CER</li>
-<li>KEY</li>
-<li>CSR</li>
-<li>PFX/P12</li>
-<li>JKS</li>
-</ol>
-<h4 id="u8BC1_u4E66_u83B7_u53D6_u529E_u6CD5"><a href="#u8BC1_u4E66_u83B7_u53D6_u529E_u6CD5" class="headerlink" title="证书获取办法"></a>证书获取办法</h4><p><strong>向权威证书颁发机构申请证书</strong><br>用这命令生成一个csr: <code>openssl req -newkey rsa:2048 -new -nodes -keyout my.key -out my.csr</code><br>把csr交给权威证书颁发机构,权威证书颁发机构对此进行签名,完成.保留好csr,当权威证书颁发机构颁发的证书过期的时候,你还可以用同样的csr来申请新的证书,key保持不变.</p>
-<p><strong>生成自签名的证书</strong><br><code>openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem</code><br>在生成证书的过程中会要你填一堆的东西,其实真正要填的只有Common Name,通常填写你服务器的域名,如”yourcompany.com”,或者你服务器的IP地址,其它都可以留空的.  </p>
+        <p>jasonread.benmangguo.com</p>
 
       
     </div>
@@ -305,16 +261,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/30/CNAME/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2016/01/30/2016-01-06/" rel="next" title="iOS 微信支付与支付宝的集成">
+                <i class="fa fa-chevron-left"></i> iOS 微信支付与支付宝的集成
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/01/30/Fastlane/" rel="prev" title="学习Fastlane">
-                学习Fastlane <i class="fa fa-chevron-right"></i>
+              <a href="/2016/01/30/ruby_ssl_connect_error/" rel="prev" title="ruby SSL_connect error">
+                ruby SSL_connect error <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -341,8 +297,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/30/ruby_ssl_connect_error/"
-           data-title="ruby SSL_connect error" data-url="http://yoursite.com/2016/01/30/ruby_ssl_connect_error/">
+      <div class="ds-thread" data-thread-key="2016/01/30/CNAME/"
+           data-title="" data-url="http://yoursite.com/2016/01/30/CNAME/">
       </div>
     
   </div>
@@ -440,7 +396,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SSL_connect_returned_3D1_errno_3D0_state_3DSSLv3_read_server_certificate_B_3A_certificate_verify_failed"><span class="nav-number">1.</span> <span class="nav-text">SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mac"><span class="nav-number">1.0.1.</span> <span class="nav-text">Mac</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Centos"><span class="nav-number">1.0.2.</span> <span class="nav-text">Centos</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-__u76F4_u63A5_u653E_u5F03_u9A8C_u8BC1"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">1. 直接放弃验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-_u91CD_u65B0_u8BA9rvm_u5B89_u88C5openssl"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">2.重新让rvm安装openssl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-_u7531_u4E8Ervm_u4F1A_u9884_u7F16_u8BD1ruby_uFF0C_u800C_u4F7F_u5F97ruby_u627E_u4E00_u4E2A_u9519_u8BEF_u7684cert_u6587_u4EF6"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">3.由于rvm会预编译ruby，而使得ruby找一个错误的cert文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-_u6700_u540E_u7684_u529E_u6CD5"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">4.最后的办法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BC1_u4E66_u5230_u5E95_u7528_u54EA_u4E2A_u53C2_u8003_u94FE_u63A5"><span class="nav-number">1.0.3.</span> <span class="nav-text">证书到底用哪个参考链接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u7F16_u7801_u683C_u5F0F"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">编码格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u6587_u4EF6_u6269_u5C55_u540D"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">文件扩展名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u8BC1_u4E66_u83B7_u53D6_u529E_u6CD5"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">证书获取办法</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

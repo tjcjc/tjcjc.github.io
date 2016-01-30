@@ -46,6 +46,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="Jason Read" type="application/atom+xml" />
 
@@ -59,19 +61,22 @@
 
 
 
-<meta name="description" content="SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failedMac
-其实这个问题，先前就已经碰到过了。这个问题是ruby在请求https的地址时候，找不到Certificate Authority (CA) bundle。就是一个.pem文件。默认的访问地址是/usr/">
+<meta name="description" content="学习Fastlane基础配置123456cd project_dirgem install fastlanefastlane init#Your Apple ID (e.g. fastlane@krausefx.com):#输入你的Apple Id#输入密码
+Appfile:主要是声明一些操作时候的变量。
+12345678app_identifier &quot;tools.fastlane.app&quot;for">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ruby SSL_connect error">
-<meta property="og:url" content="http://yoursite.com/2016/01/30/ruby_ssl_connect_error/index.html">
+<meta property="og:title" content="学习Fastlane">
+<meta property="og:url" content="http://yoursite.com/2016/01/30/Fastlane/index.html">
 <meta property="og:site_name" content="Jason Read">
-<meta property="og:description" content="SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failedMac
-其实这个问题，先前就已经碰到过了。这个问题是ruby在请求https的地址时候，找不到Certificate Authority (CA) bundle。就是一个.pem文件。默认的访问地址是/usr/">
-<meta property="og:updated_time" content="2016-01-30T05:28:26.000Z">
+<meta property="og:description" content="学习Fastlane基础配置123456cd project_dirgem install fastlanefastlane init#Your Apple ID (e.g. fastlane@krausefx.com):#输入你的Apple Id#输入密码
+Appfile:主要是声明一些操作时候的变量。
+12345678app_identifier &quot;tools.fastlane.app&quot;for">
+<meta property="og:updated_time" content="2016-01-30T11:42:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ruby SSL_connect error">
-<meta name="twitter:description" content="SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failedMac
-其实这个问题，先前就已经碰到过了。这个问题是ruby在请求https的地址时候，找不到Certificate Authority (CA) bundle。就是一个.pem文件。默认的访问地址是/usr/">
+<meta name="twitter:title" content="学习Fastlane">
+<meta name="twitter:description" content="学习Fastlane基础配置123456cd project_dirgem install fastlanefastlane init#Your Apple ID (e.g. fastlane@krausefx.com):#输入你的Apple Id#输入密码
+Appfile:主要是声明一些操作时候的变量。
+12345678app_identifier &quot;tools.fastlane.app&quot;for">
 
 
 
@@ -89,7 +94,7 @@
   };
 </script>
 
-  <title> ruby SSL_connect error | Jason Read </title>
+  <title> 学习Fastlane | Jason Read </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -207,7 +212,7 @@
             
             
               
-                ruby SSL_connect error
+                学习Fastlane
               
             
           </h1>
@@ -219,7 +224,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-30T13:28:27+08:00" content="2016-01-30">
+            <time itemprop="dateCreated" datetime="2016-01-30T19:42:04+08:00" content="2016-01-30">
               2016-01-30
             </time>
           </span>
@@ -230,8 +235,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/30/ruby_ssl_connect_error/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/30/ruby_ssl_connect_error/" itemprop="commentsCount"></span>
+                <a href="/2016/01/30/Fastlane/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/30/Fastlane/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -252,48 +257,45 @@
       
 
       
-        <h1 id="SSL_connect_returned_3D1_errno_3D0_state_3DSSLv3_read_server_certificate_B_3A_certificate_verify_failed"><a href="#SSL_connect_returned_3D1_errno_3D0_state_3DSSLv3_read_server_certificate_B_3A_certificate_verify_failed" class="headerlink" title="SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed"></a>SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed</h1><h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><hr>
-<p>其实这个问题，先前就已经碰到过了。<br>这个问题是ruby在请求https的地址时候，找不到Certificate Authority (CA) bundle。就是一个<em>.pem</em>文件。默认的访问地址是<code>/usr/local/etc/cacert.pem</code>，如果你没有这个文件，或者这个文件有问题，都会报这个错误。<br>当时是在mac上，之前的解决办法是<a href="http://stackoverflow.com/questions/4528101/ssl-connect-returned-1-errno-0-state-sslv3-read-server-certificate-b-certificat" target="_blank" rel="external">参考链接</a>。</p>
-<ul>
-<li>sudo port install curl-ca-bundle</li>
-<li>或者是直接wget下载wget <a href="http://curl.haxx.se/ca/cacert.pem" target="_blank" rel="external">http://curl.haxx.se/ca/cacert.pem</a></li>
-<li>下载好这个文件之后，<code>export SSL_CERT_FILE=/path/to/cert.pem</code>添加到bashConfig中。如果还是有问题，记得打印<strong>ENV[‘SSL_CERT_FILE’]</strong>，到底是不是指向你的文件。</li>
-<li>如果还是不行的：rvm reinstall ruby –disable-binary</li>
+        <h1 id="u5B66_u4E60Fastlane"><a href="#u5B66_u4E60Fastlane" class="headerlink" title="学习Fastlane"></a>学习Fastlane</h1><h3 id="u57FA_u7840_u914D_u7F6E"><a href="#u57FA_u7840_u914D_u7F6E" class="headerlink" title="基础配置"></a>基础配置</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd project_dir</span><br><span class="line">gem install fastlane</span><br><span class="line">fastlane init</span><br><span class="line"><span class="comment">#Your Apple ID (e.g. fastlane<span class="doctag">@krausefx</span>.com):</span></span><br><span class="line"><span class="comment">#输入你的Apple Id</span></span><br><span class="line"><span class="comment">#输入密码</span></span><br></pre></td></tr></table></figure>
+<p><strong><a href="https://github.com/fastlane/fastlane/blob/master/docs/Appfile.md" target="_blank" rel="external">Appfile</a></strong>:主要是声明一些操作时候的变量。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">app_identifier <span class="string">"tools.fastlane.app"</span></span><br><span class="line">for_platform <span class="symbol">:ios</span> <span class="keyword">do</span></span><br><span class="line">  team_id <span class="string">'123'</span> <span class="comment"># for all iOS related things</span></span><br><span class="line">  for_lane <span class="symbol">:test</span> <span class="keyword">do</span></span><br><span class="line">    app_identifier <span class="string">'com.app.test'</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">#在其他文件中，CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)可以获取这个变量</span></span><br></pre></td></tr></table></figure>
+<p><strong><a href="https://github.com/fastlane/fastlane/tree/master/docs" target="_blank" rel="external">Fastfile</a></strong>:编写新的命令。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lane <span class="symbol">:my_lane</span> <span class="keyword">do</span></span><br><span class="line">  <span class="comment"># Whatever actions you like go in here.</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment"># fastlane my_lane 运行</span></span><br></pre></td></tr></table></figure>
+<h4 id="u5168_u5C40_u53D8_u91CF_u4E0E_u65B9_u6CD5"><a href="#u5168_u5C40_u53D8_u91CF_u4E0E_u65B9_u6CD5" class="headerlink" title="全局变量与方法"></a>全局变量与方法</h4><ol>
+<li><strong>全局变量</strong>：<br>  <code>CredentialsManager::AppfileConfig.try_fetch_value(:变量名)</code></li>
+<li><strong>运行中产生的变量</strong>:<br>  <code>Actions.lane_context[SharedValues::SIGH_PROFILE_TYPE]</code></li>
+<li><strong>打印</strong>:<br> <code>Helper.log.info</code></li>
+</ol>
+<h4 id="Gym_3A_u7F16_u8BD1_u9879_u76EE_u94FE_u63A5"><a href="#Gym_3A_u7F16_u8BD1_u9879_u76EE_u94FE_u63A5" class="headerlink" title="Gym:编译项目链接"></a>Gym:编译项目<a href="https://github.com/fastlane/gym" target="_blank" rel="external">链接</a></h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gym init</span><br><span class="line"><span class="comment">#Gymfile</span></span><br><span class="line">output_directory <span class="string">"./ipas"</span> <span class="comment">#ipa的输出地址 相对于项目根目录</span></span><br><span class="line">output_name <span class="string">"IpaName"</span> <span class="comment">#ipa文件的名称</span></span><br><span class="line">provisioning_profile_path <span class="string">"/path/to/provision/"</span> <span class="comment">#编译时候的provision</span></span><br></pre></td></tr></table></figure>
+<h4 id="Match_3A_u83B7_u53D6certificates_u4E0Eprofiles_u94FE_u63A5"><a href="#Match_3A_u83B7_u53D6certificates_u4E0Eprofiles_u94FE_u63A5" class="headerlink" title="Match:获取certificates与profiles链接"></a>Match:获取certificates与profiles<a href="https://github.com/fastlane/match" target="_blank" rel="external">链接</a></h4><ul>
+<li>配置：需要一个git repo，本地的也可以</li>
+<li><code>match init</code></li>
+<li><code>git_url &quot;file:///path/to/repo.git&quot;</code></li>
+<li><code>match adhoc --readobly</code>: 会去查看repo中有没有相应的cert与profiles，如果没有的话，会新建。</li>
+<li><code>match appstore --readonly</code></li>
+<li><code>match developent --readonly</code></li>
+<li><strong>readonly</strong>: 如果不加这个选项的话，如果在repo中没有相应的文件，会从memcenter中下载，并且push到repo中。</li>
+<li><a href="https://codesigning.guide" target="_blank" rel="external">参考链接</a></li>
+<li>match主要是调用了其他的两个工具cert，与sign</li>
 </ul>
-<h3 id="Centos"><a href="#Centos" class="headerlink" title="Centos"></a>Centos</h3><hr>
-<p>今天我又在Centos下面碰到了相同的问题，实在调用RestClient的时候报的错。就直接去搜索这个问题，然后发现有多个原因会导致这个问题，尝试了所有的解决办法，发现跟之前的原因其实是一样的，就是没有在环境中设置正确的<strong>SSL_CERT_FILE</strong>。<br>不过还是把一些没有解决我问题的解决方案全都列出来。兴许以后会遇到。</p>
-<h4 id="1-__u76F4_u63A5_u653E_u5F03_u9A8C_u8BC1"><a href="#1-__u76F4_u63A5_u653E_u5F03_u9A8C_u8BC1" class="headerlink" title="1. 直接放弃验证"></a>1. 直接放弃验证</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'openssl'</span></span><br><span class="line"><span class="constant">OpenSSL::SSL::VERIFY_PEER</span> = <span class="constant">OpenSSL::SSL::VERIFY_NONE</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-_u91CD_u65B0_u8BA9rvm_u5B89_u88C5openssl"><a href="#2-_u91CD_u65B0_u8BA9rvm_u5B89_u88C5openssl" class="headerlink" title="2.重新让rvm安装openssl"></a>2.重新让rvm安装openssl</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rvm pkg install openssl</span><br><span class="line"><span class="comment">#安装完openssl之后，需要重新安装ruby</span></span><br><span class="line">rvm reinstall <span class="number">2.1</span>.<span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h4 id="3-_u7531_u4E8Ervm_u4F1A_u9884_u7F16_u8BD1ruby_uFF0C_u800C_u4F7F_u5F97ruby_u627E_u4E00_u4E2A_u9519_u8BEF_u7684cert_u6587_u4EF6"><a href="#3-_u7531_u4E8Ervm_u4F1A_u9884_u7F16_u8BD1ruby_uFF0C_u800C_u4F7F_u5F97ruby_u627E_u4E00_u4E2A_u9519_u8BEF_u7684cert_u6587_u4EF6" class="headerlink" title="3.由于rvm会预编译ruby，而使得ruby找一个错误的cert文件"></a>3.由于rvm会预编译ruby，而使得ruby找一个错误的cert文件</h4><p>这里主要参考了这个<a href="http://toadle.me/2015/04/16/fixing-failing-ssl-verification-with-rvm.html" target="_blank" rel="external">参考地址</a></p>
-<ol>
-<li>可以使用这个<a href="https://github.com/mislav/ssl-tools" target="_blank" rel="external">ssl-tools</a>来验证，是不是这个问题。</li>
-<li><code>wget https://github.com/mislav/ssl-tools&amp;&amp;cdssl-tools</code></li>
-<li><code>ruby doctor.rb accounts.google.com:443</code>，如果返回<strong>error code 20: unable to get local issuer certificate</strong>。那可能就是这个问题导致的。</li>
-<li>解决办法就是<strong>重新安装ruby</strong><code>rvm install 2.2.0 --disable-binary</code></li>
-<li><code>ruby doctor.rb accounts.google.com:443</code>，这个时候应该返回ok了。</li>
+<h4 id="cert_3A_u7BA1_u7406_u6216_u8005_u751F_u6210_u5F00_u53D1_u8BC1_u4E66_u94FE_u63A5_u5730_u5740"><a href="#cert_3A_u7BA1_u7406_u6216_u8005_u751F_u6210_u5F00_u53D1_u8BC1_u4E66_u94FE_u63A5_u5730_u5740" class="headerlink" title="cert:管理或者生成开发证书链接地址"></a>cert:管理或者生成开发证书<a href="https://github.com/fastlane/cert" target="_blank" rel="external">链接地址</a></h4><ul>
+<li>直接运行<code>cert</code>会检测本地有没有可用的证书，如果没有的话，会完成一系列的工作，直到将苹果的证书导入到本地。</li>
+</ul>
+<h4 id="sigh_3A_u7BA1_u7406_u6216_u8005_u751F_u6210profile_u94FE_u63A5_u5730_u5740"><a href="#sigh_3A_u7BA1_u7406_u6216_u8005_u751F_u6210profile_u94FE_u63A5_u5730_u5740" class="headerlink" title="sigh:管理或者生成profile链接地址"></a>sigh:管理或者生成profile<a href="https://github.com/fastlane/sigh" target="_blank" rel="external">链接地址</a></h4><ul>
+<li><code>sigh</code>:如果没有会生成再下载</li>
+<li><code>sigh --development</code>:生成dev profile</li>
+<li><code>sigh -o &quot;~/Certificates/&quot;</code>: 生成至特定的目录</li>
+<li><code>sigh download_all</code>: 下载所有的profile</li>
+<li><code>sigh --skip_install</code>: 只下载不安装</li>
+<li><code>sigh --force</code>: 强制重新生成</li>
+</ul>
+<h4 id="u4F8B_u5B50"><a href="#u4F8B_u5B50" class="headerlink" title="例子"></a>例子</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">provision_file</span><span class="params">(type=<span class="keyword">nil</span>)</span></span></span><br><span class="line">    type ||= <span class="constant">Actions</span>.lane_context[<span class="constant">SharedValues::SIGH_PROFILE_TYPE</span>].gsub(<span class="string">"-"</span>,<span class="string">""</span>)</span><br><span class="line">    <span class="constant">Helper</span>.log.info <span class="string">"---------<span class="subst">#&#123;type&#125;</span>"</span></span><br><span class="line">    env_name = <span class="string">"sigh_<span class="subst">#&#123;<span class="constant">CredentialsManager::AppfileConfig</span>.try_fetch_value(<span class="symbol">:app_identifier</span>)&#125;</span>_<span class="subst">#&#123;type&#125;</span>"</span></span><br><span class="line">    <span class="constant">Helper</span>.log.info <span class="string">"************<span class="subst">#&#123;env_name&#125;</span>"</span></span><br><span class="line">    filename = <span class="constant">ENV</span>[env_name]</span><br><span class="line">    <span class="string">"<span class="subst">#&#123;<span class="constant">PROVISION_DIR</span>&#125;</span><span class="subst">#&#123;filename&#125;</span>.mobileprovision"</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">desc <span class="string">"build adoc and publish to fir.im "</span></span><br><span class="line">lane <span class="symbol">:firim</span> <span class="keyword">do</span></span><br><span class="line">	match(<span class="symbol">type:</span> <span class="string">"adhoc"</span>)</span><br><span class="line">	gym(<span class="symbol">scheme:</span> <span class="string">"Yidian"</span>, <span class="symbol">output_name:</span> <span class="string">"YidianAdhoc"</span>, <span class="symbol">provisioning_profile_path:</span>provision_file)</span><br><span class="line">	sh <span class="string">"fir publish ../ipas/YidianAdhoc.ipa"</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="u5176_u4ED6_u547D_u4EE4_uFF1A"><a href="#u5176_u4ED6_u547D_u4EE4_uFF1A" class="headerlink" title="其他命令："></a>其他命令：</h4><ol>
+<li><a href="https://github.com/fastlane/deliver" target="_blank" rel="external">Deliver</a>:提交app</li>
+<li><a href="https://github.com/fastlane/snapshot" target="_blank" rel="external">Screenshot</a>:生成屏幕截图</li>
+<li><a href="https://github.com/fastlane/frameit" target="_blank" rel="external">Frameit</a>:将屏幕截图放置在设备的图片中。</li>
 </ol>
-<h4 id="4-_u6700_u540E_u7684_u529E_u6CD5"><a href="#4-_u6700_u540E_u7684_u529E_u6CD5" class="headerlink" title="4.最后的办法"></a>4.最后的办法</h4><p>第三种办法，可能最后返回ok了，但是再换一个网站，比如微信的api地址<strong>‘<a href="https://api.mch.weixin.qq.com" target="_blank" rel="external">https://api.mch.weixin.qq.com</a></strong>，可能还是继续最开的那个SSL_Connect的错误。根据问题的描述，其实就是没有合法的ca文件，因为ruby默认去<code>/usr/local/etc/cacert.pem</code>这个地址找，即便是在CentOs上面，他也是去找这个地址。</p>
-<ol>
-<li>所以我就用Mac上的办法，下载新的cert文件，并且做了一个引用，连接到<code>/usr/local/etc/cacert.pem</code>。但是<strong>没有用</strong>。</li>
-<li>然后发现CentOs的openssl其实是安装在<code>/etc/pki/tls/</code>这个地址的。他的证书其实是<strong>/etc/pki/tls/certs/ca-bundle.crt</strong>。</li>
-<li>所以在ruby请求https之前设置<code>ENV[&quot;SSL_CERT_FILE&quot;]=/etc/pki/tls/certs/ca-bundle.crt</code>，<strong>问题顺利解决。</strong></li>
-</ol>
-<h3 id="u8BC1_u4E66_u5230_u5E95_u7528_u54EA_u4E2A_u53C2_u8003_u94FE_u63A5"><a href="#u8BC1_u4E66_u5230_u5E95_u7528_u54EA_u4E2A_u53C2_u8003_u94FE_u63A5" class="headerlink" title="证书到底用哪个参考链接"></a>证书到底用哪个<a href="http://www.cnblogs.com/guogangj/p/4118605.html" target="_blank" rel="external">参考链接</a></h3><hr>
-<h4 id="u7F16_u7801_u683C_u5F0F"><a href="#u7F16_u7801_u683C_u5F0F" class="headerlink" title="编码格式"></a>编码格式</h4><ol>
-<li><strong>PEM</strong> - Privacy Enhanced Mail,打开看文本格式,以”—–BEGIN…”开头, “—–END…”结尾,内容是BASE64编码。查看PEM格式证书的信息:openssl x509 -in certificate.pem -text -noout。Apache和*NIX服务器偏向于使用这种编码格式.</li>
-<li><strong>DER</strong> - Distinguished Encoding Rules,打开看是二进制格式,不可读。查看DER格式证书的信息:openssl x509 -in certificate.der -inform der -text -noout。Java和Windows服务器偏向于使用这种编码格式.</li>
-</ol>
-<h4 id="u6587_u4EF6_u6269_u5C55_u540D"><a href="#u6587_u4EF6_u6269_u5C55_u540D" class="headerlink" title="文件扩展名"></a>文件扩展名</h4><p>这是比较误导人的地方,虽然我们已经知道有PEM和DER这两种编码格式,但文件扩展名并不一定就叫”PEM”或者”DER”,常见的扩展名除了PEM和DER还有以下这些,它们除了编码格式可能不同之外,内容也有差别,但大多数都能相互转换编码格式.</p>
-<ol>
-<li>CRT</li>
-<li>CER</li>
-<li>KEY</li>
-<li>CSR</li>
-<li>PFX/P12</li>
-<li>JKS</li>
-</ol>
-<h4 id="u8BC1_u4E66_u83B7_u53D6_u529E_u6CD5"><a href="#u8BC1_u4E66_u83B7_u53D6_u529E_u6CD5" class="headerlink" title="证书获取办法"></a>证书获取办法</h4><p><strong>向权威证书颁发机构申请证书</strong><br>用这命令生成一个csr: <code>openssl req -newkey rsa:2048 -new -nodes -keyout my.key -out my.csr</code><br>把csr交给权威证书颁发机构,权威证书颁发机构对此进行签名,完成.保留好csr,当权威证书颁发机构颁发的证书过期的时候,你还可以用同样的csr来申请新的证书,key保持不变.</p>
-<p><strong>生成自签名的证书</strong><br><code>openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem</code><br>在生成证书的过程中会要你填一堆的东西,其实真正要填的只有Common Name,通常填写你服务器的域名,如”yourcompany.com”,或者你服务器的IP地址,其它都可以留空的.  </p>
 
       
     </div>
@@ -305,17 +307,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/30/CNAME/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2016/01/30/ruby_ssl_connect_error/" rel="next" title="ruby SSL_connect error">
+                <i class="fa fa-chevron-left"></i> ruby SSL_connect error
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/30/Fastlane/" rel="prev" title="学习Fastlane">
-                学习Fastlane <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -341,8 +339,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/30/ruby_ssl_connect_error/"
-           data-title="ruby SSL_connect error" data-url="http://yoursite.com/2016/01/30/ruby_ssl_connect_error/">
+      <div class="ds-thread" data-thread-key="2016/01/30/Fastlane/"
+           data-title="学习Fastlane" data-url="http://yoursite.com/2016/01/30/Fastlane/">
       </div>
     
   </div>
@@ -440,7 +438,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SSL_connect_returned_3D1_errno_3D0_state_3DSSLv3_read_server_certificate_B_3A_certificate_verify_failed"><span class="nav-number">1.</span> <span class="nav-text">SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mac"><span class="nav-number">1.0.1.</span> <span class="nav-text">Mac</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Centos"><span class="nav-number">1.0.2.</span> <span class="nav-text">Centos</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-__u76F4_u63A5_u653E_u5F03_u9A8C_u8BC1"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">1. 直接放弃验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-_u91CD_u65B0_u8BA9rvm_u5B89_u88C5openssl"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">2.重新让rvm安装openssl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-_u7531_u4E8Ervm_u4F1A_u9884_u7F16_u8BD1ruby_uFF0C_u800C_u4F7F_u5F97ruby_u627E_u4E00_u4E2A_u9519_u8BEF_u7684cert_u6587_u4EF6"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">3.由于rvm会预编译ruby，而使得ruby找一个错误的cert文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-_u6700_u540E_u7684_u529E_u6CD5"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">4.最后的办法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BC1_u4E66_u5230_u5E95_u7528_u54EA_u4E2A_u53C2_u8003_u94FE_u63A5"><span class="nav-number">1.0.3.</span> <span class="nav-text">证书到底用哪个参考链接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u7F16_u7801_u683C_u5F0F"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">编码格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u6587_u4EF6_u6269_u5C55_u540D"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">文件扩展名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u8BC1_u4E66_u83B7_u53D6_u529E_u6CD5"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">证书获取办法</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5B66_u4E60Fastlane"><span class="nav-number">1.</span> <span class="nav-text">学习Fastlane</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u57FA_u7840_u914D_u7F6E"><span class="nav-number">1.0.1.</span> <span class="nav-text">基础配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u5168_u5C40_u53D8_u91CF_u4E0E_u65B9_u6CD5"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">全局变量与方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gym_3A_u7F16_u8BD1_u9879_u76EE_u94FE_u63A5"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">Gym:编译项目链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Match_3A_u83B7_u53D6certificates_u4E0Eprofiles_u94FE_u63A5"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">Match:获取certificates与profiles链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cert_3A_u7BA1_u7406_u6216_u8005_u751F_u6210_u5F00_u53D1_u8BC1_u4E66_u94FE_u63A5_u5730_u5740"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">cert:管理或者生成开发证书链接地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sigh_3A_u7BA1_u7406_u6216_u8005_u751F_u6210profile_u94FE_u63A5_u5730_u5740"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">sigh:管理或者生成profile链接地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u4F8B_u5B50"><span class="nav-number">1.0.1.6.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u5176_u4ED6_u547D_u4EE4_uFF1A"><span class="nav-number">1.0.1.7.</span> <span class="nav-text">其他命令：</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
