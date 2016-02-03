@@ -1,0 +1,765 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jason Read" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+
+
+
+
+
+
+<meta name="description" content="Vagrant
+安装 链接地址
+安装VirtualBox
+获取Ubuntu源，链接地址
+添加镜像vagrant box add ubuntu12_04 ~/Download/precise64.box
+vagrant init 生成Vagrantfile
+镜像地址: 链接
+
+配置文件123456789101112131415161718192021222324Vagrant.configure(2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chef Vagrant Docker">
+<meta property="og:url" content="http://yoursite.com/2016/02/03/Docker&Chef/index.html">
+<meta property="og:site_name" content="Jason Read">
+<meta property="og:description" content="Vagrant
+安装 链接地址
+安装VirtualBox
+获取Ubuntu源，链接地址
+添加镜像vagrant box add ubuntu12_04 ~/Download/precise64.box
+vagrant init 生成Vagrantfile
+镜像地址: 链接
+
+配置文件123456789101112131415161718192021222324Vagrant.configure(2">
+<meta property="og:updated_time" content="2016-02-03T09:22:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chef Vagrant Docker">
+<meta name="twitter:description" content="Vagrant
+安装 链接地址
+安装VirtualBox
+获取Ubuntu源，链接地址
+添加镜像vagrant box add ubuntu12_04 ~/Download/precise64.box
+vagrant init 生成Vagrantfile
+镜像地址: 链接
+
+配置文件123456789101112131415161718192021222324Vagrant.configure(2">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Chef Vagrant Docker | Jason Read </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jason Read</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Chef Vagrant Docker
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-03T17:22:16+08:00" content="2016-02-03">
+              2016-02-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/03/Docker&Chef/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/03/Docker&Chef/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Vagrant"><a href="#Vagrant" class="headerlink" title="Vagrant"></a>Vagrant</h2><ol>
+<li>安装 <a href="https://www.vagrantup.com/downloads.html" target="_blank" rel="external">链接地址</a></li>
+<li>安装VirtualBox</li>
+<li>获取Ubuntu源，<a href="http://files.vagrantup.com/precise64.box" target="_blank" rel="external">链接地址</a></li>
+<li>添加镜像<code>vagrant box add ubuntu12_04 ~/Download/precise64.box</code></li>
+<li><code>vagrant init</code> 生成Vagrantfile</li>
+<li>镜像地址: <a href="http://www.vagrantbox.es" target="_blank" rel="external">链接</a></li>
+</ol>
+<h4 id="u914D_u7F6E_u6587_u4EF6"><a href="#u914D_u7F6E_u6587_u4EF6" class="headerlink" title="配置文件"></a>配置文件</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">Vagrant</span>.configure(<span class="number">2</span>) <span class="keyword">do</span> |config|</span><br><span class="line">	config.vm.box = <span class="string">"ubuntu_12_04"</span></span><br><span class="line">	config.vm.host_name = <span class="string">"webserver"</span></span><br><span class="line">	config.vm.network <span class="string">"forwarded_port"</span>, <span class="symbol">guest:</span> <span class="number">80</span>, <span class="symbol">host:</span> <span class="number">3000</span></span><br><span class="line"></span><br><span class="line">	config.vm.network <span class="string">"private_network"</span>, <span class="symbol">ip:</span> <span class="string">"192.168.33.10"</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># config.vm.synced_folder "../data", "/vagrant_data"</span></span><br><span class="line">	config.vm.provider <span class="string">"virtualbox"</span> <span class="keyword">do</span> |vb|</span><br><span class="line">     <span class="comment"># Display the VirtualBox GUI when booting the machine</span></span><br><span class="line">     <span class="comment">#vb.gui = true</span></span><br><span class="line"></span><br><span class="line">     <span class="comment"># Customize the amount of memory on the VM:</span></span><br><span class="line">		vb.memory = <span class="string">"512"</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># View the documentation for the provider you are using for more</span></span><br><span class="line">  <span class="comment"># information on available options.</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># config.vm.provision "shell", inline: &lt;&lt;-SHELL</span></span><br><span class="line">  <span class="comment">#   sudo apt-get update</span></span><br><span class="line">  <span class="comment">#   sudo apt-get install -y apache2</span></span><br><span class="line">  <span class="comment"># SHELL</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="u547D_u4EE4"><a href="#u547D_u4EE4" class="headerlink" title="命令"></a>命令</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vagrant up <span class="comment">#启动</span></span><br><span class="line">vagrant ssh <span class="comment">#链接</span></span><br><span class="line">vagrant halt <span class="comment">#挂起 把内存存到硬盘里，方便下次更快的启动</span></span><br><span class="line">vagrant halt <span class="comment">#关闭</span></span><br><span class="line">vagrant destroy <span class="comment">#删除，下次启动时候 会重新安装</span></span><br></pre></td></tr></table></figure>
+<h2 id="Chef"><a href="#Chef" class="headerlink" title="Chef"></a>Chef</h2><p>使用chef-solo的方案</p>
+<ol>
+<li>在本地安装chef:<code>gem install chef</code>, chef-solo已经包含在chef中了。</li>
+<li>安装knife: <code>gem install knife-solo</code></li>
+<li>新建knife目录: <code>knife solo init project-solo</code></li>
+<li>生成一个默认配置: <code>knife configure -r . --defaults</code></li>
+<li>部署: <code>knife solo bootstrap vagrant@192.168.33.10</code>，这个命令其实等价于<ol>
+<li><code>knife solo prepare</code>: 登陆机器，并且安装chef环境</li>
+<li><code>knife solo cook</code>: 上传本地的cookbook 并且在vps上运行</li>
+</ol>
+</li>
+<li>在下次使用的时候，<strong>只需要</strong><code>knife solo cook</code>就可以了</li>
+<li>新建cookbook: <code>knife cookbook create nginx</code></li>
+</ol>
+<h4 id="u4F7F_u7528berkshelf__u94FE_u63A5_u5730_u5740"><a href="#u4F7F_u7528berkshelf__u94FE_u63A5_u5730_u5740" class="headerlink" title="使用berkshelf 链接地址"></a>使用berkshelf <a href="http://berkshelf.com" target="_blank" rel="external">链接地址</a></h4><ol>
+<li>新建cookbook: <code>knife cookbook create berks &amp;&amp; cd cookboos/berks &amp;&amp; berks init</code></li>
+<li>berkshelf会把cookbooks安装到<code>~/.berkshelf</code>这个目录中</li>
+<li><code>berks install</code> 类似于<code>bundle install</code>安装cookbooks</li>
+<li><code>berks verdor dir</code>会把cookbooks导出至dir</li>
+<li><strong>疑问</strong>: berkshelf主要适用于一个library cookbook的依赖，不适用于管理application的cookbook， 所以就把vendor出来的cookbook拷贝至<code>repo/cookbook</code>中继续使用。</li>
+</ol>
+<h2 id="Chef_Cookbook"><a href="#Chef_Cookbook" class="headerlink" title="Chef Cookbook"></a>Chef Cookbook</h2><h4 id="user__u94FE_u63A5"><a href="#user__u94FE_u63A5" class="headerlink" title="user 链接"></a>user <a href="https://github.com/fnichol/chef-user" target="_blank" rel="external">链接</a></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// node文件</span><br><span class="line">"run_list":[</span><br><span class="line">	[recipe[user::data_bag]]</span><br><span class="line">],</span><br><span class="line"></span><br><span class="line">//user的配置</span><br><span class="line">"user":&#123;</span><br><span class="line">   "user_array_node_attr":"new_users"</span><br><span class="line">&#125;,</span><br><span class="line">"new_users":[</span><br><span class="line">   "ubuntu"</span><br><span class="line">   ]</span><br><span class="line">// repo/data_bags/users/ubuntu.json</span><br><span class="line">&#123;</span><br><span class="line">	"id": "ubuntu",</span><br><span class="line">	"password": "password",</span><br><span class="line">	"ssh_keys": [</span><br><span class="line">		""//会被添加至authorikeys</span><br><span class="line">	],</span><br><span class="line">	"uid": 2001,</span><br><span class="line">	"shell": "\/bin\/bash",</span><br><span class="line">	"comment": "ubuntu",</span><br><span class="line">	"ssh_keygen": "false"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>坑</strong>:因为data_bag这个recipe会读取<code>node[&quot;users&quot;]</code>字段，需要是一个数组，但是chefmeta这个recipe需要<code>node[&quot;users&quot;]</code>为hash。<code>node[&#39;user&#39;][&#39;user_array_node_attr&#39;]</code>设置为<strong>users</strong>以外的值。</p>
+<h4 id="sudo__u94FE_u63A5"><a href="#sudo__u94FE_u63A5" class="headerlink" title="sudo 链接"></a>sudo <a href="https://github.com/chef-cookbooks/sudo" target="_blank" rel="external">链接</a></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// node文件</span><br><span class="line">"run_list":[</span><br><span class="line">	["recipe[sudo]"]</span><br><span class="line">],</span><br><span class="line">// sudo配置</span><br><span class="line">"authorization": &#123;</span><br><span class="line"> "sudo": &#123;</span><br><span class="line">   "users": ["ubuntu"],</span><br><span class="line">   "passwordless": "true"</span><br><span class="line">   &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="zsh__u94FE_u63A5"><a href="#zsh__u94FE_u63A5" class="headerlink" title="zsh 链接"></a>zsh <a href="https://github.com/chef-cookbooks/zsh" target="_blank" rel="external">链接</a></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"run_list":[</span><br><span class="line">	["recipe[zsh]"]</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+<h4 id="oh_my_zsh__u94FE_u63A5"><a href="#oh_my_zsh__u94FE_u63A5" class="headerlink" title="oh_my_zsh 链接"></a>oh_my_zsh <a href="https://github.com/shingara/oh-my-zsh-chef" target="_blank" rel="external">链接</a></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">"run_list":[</span><br><span class="line">	["recipe[oh_my_zsh]"]</span><br><span class="line">],</span><br><span class="line">"oh_my_zsh":&#123;</span><br><span class="line">   "users":[</span><br><span class="line">       &#123;</span><br><span class="line">           "login": "ubuntu",</span><br><span class="line">           "plugins": ["gem", "git", "rails", "ruby"],</span><br><span class="line">           "home": "/home/ubuntu" //这个字段必须写，否则会出现写入.oh_my_zsh权限不足的问题</span><br><span class="line">       &#125;</span><br><span class="line">   ]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="memcached__u94FE_u63A5"><a href="#memcached__u94FE_u63A5" class="headerlink" title="memcached 链接"></a>memcached <a href="https://github.com/chef-cookbooks/memcached" target="_blank" rel="external">链接</a></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"run_list":[</span><br><span class="line">	["recipe[memcached]"]</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+<h4 id="redis__u94FE_u63A5"><a href="#redis__u94FE_u63A5" class="headerlink" title="redis 链接"></a>redis <a href="https://supermarket.chef.io/cookbooks/redis" target="_blank" rel="external">链接</a></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"run_list":[</span><br><span class="line">	["recipe[redis]"]</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+<h4 id="mysql__u94FE_u63A5"><a href="#mysql__u94FE_u63A5" class="headerlink" title="mysql 链接"></a>mysql <a href="https://github.com/chef-cookbooks/mysql" target="_blank" rel="external">链接</a></h4><p>mysql没有自己的recipe所以要自己新建recipe</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql_service <span class="string">'default'</span> <span class="keyword">do</span></span><br><span class="line">  port <span class="string">'3306'</span></span><br><span class="line">  initial_root_password <span class="string">'password'</span></span><br><span class="line">  action [<span class="symbol">:create</span>, <span class="symbol">:start</span>]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="rvm__26amp_3B_26amp_3B_ruby_rvm_fw"><a href="#rvm__26amp_3B_26amp_3B_ruby_rvm_fw" class="headerlink" title="rvm &amp;&amp; ruby rvm_fw"></a>rvm &amp;&amp; ruby <a href="https://supermarket.chef.io/cookbooks/rvm_fw" target="_blank" rel="external">rvm_fw</a></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">"run_list":[</span><br><span class="line">	["recipe[rvm_fw]"]</span><br><span class="line">],</span><br><span class="line">"rvm_fw":&#123;</span><br><span class="line">   "global_ruby":"ruby-2.2.3",</span><br><span class="line">   "user":"ubuntu",</span><br><span class="line">   "url":"https://get.rvm.io",</span><br><span class="line">   "flags":"--disable-binary"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 考虑到rvm安装的ruby可能会有ssl问题，所以在安装的时候需要添加--no-binray的标志</span></span><br><span class="line"><span class="comment"># line 111 : cookboos/rvm_fw/recipes/default.rb</span></span><br><span class="line">flags = <span class="string">"--verify-downloads 1 <span class="subst">#&#123;node[<span class="string">"rvm_fw"</span>][<span class="string">"flags"</span>]&#125;</span>"</span></span><br><span class="line"><span class="comment"># 如果之后需要安装mysql的话可以天前将mysql的依赖安装上</span></span><br><span class="line"><span class="comment"># line 32 : cookboos/rvm_fw/recipes/default.rb</span></span><br><span class="line">mysql-devel <span class="comment">#添加至rhel的依赖packages</span></span><br><span class="line">libmysqlclient-dev <span class="comment">#添加至debian的依赖packages</span></span><br></pre></td></tr></table></figure>
+<h4 id="nginx__u94FE_u63A5"><a href="#nginx__u94FE_u63A5" class="headerlink" title="nginx 链接"></a>nginx <a href="https://supermarket.chef.io/cookbooks/nginx" target="_blank" rel="external">链接</a></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"run_list":[</span><br><span class="line">	["recipe[nginx]"]</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+<h4 id="yum-epel__u94FE_u63A5"><a href="#yum-epel__u94FE_u63A5" class="headerlink" title="yum-epel 链接"></a>yum-epel <a href="https://github.com/chef-cookbooks/yum-epel" target="_blank" rel="external">链接</a></h4><p>在centos下面，更新yum的时候，可能会遇到<strong>Please verify its path and try again</strong>这个问题，这是由于安装的时候无法访问https地址所导致的，只需要把yum的源改为http的即可。<br>将<code>cookbooks/yum-epel/attributes/epel.rb</code>这个文件中相应的<code>mirrorlist</code>与<code>gpgkey</code>修改为<strong>http</strong>地址即可。</p>
+<h4 id="proxcyains"><a href="#proxcyains" class="headerlink" title="proxcyains"></a>proxcyains</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> node[<span class="string">"platform"</span>]</span><br><span class="line"><span class="keyword">when</span> <span class="string">"centos"</span></span><br><span class="line">	package <span class="string">"python-setuptools"</span></span><br><span class="line">	bash <span class="string">'pip'</span> <span class="keyword">do</span></span><br><span class="line">		code <span class="string">"easy_install pip"</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"><span class="keyword">when</span> <span class="string">"ubuntu"</span>, <span class="string">"debian"</span></span><br><span class="line">	package <span class="string">"python-pip"</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="constant">SOCKET_STR</span> = <span class="string">"socks5 	127.0.0.1 1080"</span></span><br><span class="line">bash <span class="string">'install proxychains'</span> <span class="keyword">do</span></span><br><span class="line">  	cwd <span class="string">"/home/ubuntu"</span></span><br><span class="line">	code &lt;&lt;-<span class="constant">EOF</span></span><br><span class="line">		pip install shadowsocks</span><br><span class="line">		sudo sslocal -s 地址 -p 端口  -l 本地端口 -k 密码 -t <span class="number">600</span> -m 加密模式 -d start</span><br><span class="line">	    git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/rofl</span>0r/proxychains-ng.git</span><br><span class="line">        cd proxychains-ng</span><br><span class="line">        <span class="comment"># configure and install</span></span><br><span class="line">        ./configure --prefix=<span class="regexp">/usr --sysconfdir=/etc</span></span><br><span class="line">        make</span><br><span class="line">        sudo make install</span><br><span class="line">        sudo make install-config <span class="comment"># installs /etc/proxychains.conf</span></span><br><span class="line">        sudo echo <span class="comment">#&#123;SOCKET_STR&#125; &gt; /etc/proxychains.conf</span></span><br><span class="line">	<span class="constant">EOF</span></span><br><span class="line">	not_if &#123; <span class="constant">::File</span>.exists?(<span class="string">"/etc/proxychains.conf"</span>) &#125;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h2 id="Chef_DSL__u94FE_u63A5"><a href="#Chef_DSL__u94FE_u63A5" class="headerlink" title="Chef DSL 链接"></a>Chef DSL <a href="https://docs.chef.io" target="_blank" rel="external">链接</a></h2><h4 id="data_bag__u94FE_u63A5"><a href="#data_bag__u94FE_u63A5" class="headerlink" title="data bag 链接"></a>data bag <a href="https://docs.chef.io/data_bags.html" target="_blank" rel="external">链接</a></h4><p>在data_bags中的json数据文件，可以用<code>data_bag_item</code>这个方法获取<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># data_bags中有 users/ubuntu.json</span></span><br><span class="line">data_bag(<span class="string">"users"</span>) <span class="comment">#返回一个数组，["ubuntu"]</span></span><br><span class="line">data_bag_item(<span class="string">"users"</span>, <span class="string">"ubuntu"</span>) <span class="comment">#直接返回ubuntu中的hash</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="bash__u94FE_u63A5"><a href="#bash__u94FE_u63A5" class="headerlink" title="bash 链接"></a>bash <a href="https://docs.chef.io/resource_bash.html" target="_blank" rel="external">链接</a></h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bash <span class="string">'extract_module'</span> <span class="keyword">do</span></span><br><span class="line">  cwd <span class="constant">::File</span>.dirname(src_filepath)</span><br><span class="line">  code &lt;&lt;-<span class="constant">EOH</span></span><br><span class="line">		bash代码 </span><br><span class="line">  <span class="constant">EOH</span></span><br><span class="line">  user <span class="string">'ubunut'</span> <span class="comment">#哪个用户来执行</span></span><br><span class="line">  not_if &#123; <span class="constant">::File</span>.exists?(extract_path) &#125;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="git__u94FE_u63A5"><a href="#git__u94FE_u63A5" class="headerlink" title="git 链接"></a>git <a href="https://docs.chef.io/resource_git.html" target="_blank" rel="external">链接</a></h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git <span class="string">"<span class="subst">#&#123;home_directory&#125;</span>/.oh-my-zsh"</span> <span class="keyword">do</span></span><br><span class="line">	repository node[<span class="string">'oh_my_zsh'</span>][<span class="symbol">:repository</span>]</span><br><span class="line">	user user_hash[<span class="symbol">:login</span>]</span><br><span class="line">	reference <span class="string">"master"</span></span><br><span class="line">	action <span class="symbol">:sync</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="template__u94FE_u63A5"><a href="#template__u94FE_u63A5" class="headerlink" title="template 链接"></a>template <a href="https://docs.chef.io/resource_template.html" target="_blank" rel="external">链接</a></h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">template <span class="string">"<span class="subst">#&#123;home_directory&#125;</span>/.zshrc"</span> <span class="keyword">do</span></span><br><span class="line">	source <span class="string">"zshrc.erb"</span></span><br><span class="line">	owner user_hash[<span class="symbol">:login</span>]</span><br><span class="line">	mode <span class="string">"644"</span></span><br><span class="line">	action <span class="symbol">:create_if_missing</span></span><br><span class="line">	variables(&#123;</span><br><span class="line">		 <span class="symbol">:user</span> =&gt; user_hash[<span class="symbol">:login</span>],</span><br><span class="line">		 <span class="symbol">:theme</span> =&gt; user_hash[<span class="symbol">:theme</span>] || <span class="string">'robbyrussell'</span>,</span><br><span class="line">		 <span class="symbol">:case_sensitive</span> =&gt; user_hash[<span class="symbol">:case_sensitive</span>] || <span class="keyword">false</span>,</span><br><span class="line">		 <span class="symbol">:plugins</span> =&gt; user_hash[<span class="symbol">:plugins</span>] || <span class="string">%w(git)</span></span><br><span class="line">	&#125;)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="role_and_environment_u94FE_u63A5_u5730_u5740"><a href="#role_and_environment_u94FE_u63A5_u5730_u5740" class="headerlink" title="role and environment链接地址"></a>role and environment<a href="https://www.digitalocean.com/community/tutorials/how-to-use-roles-and-environments-in-chef-to-control-server-configurations" target="_blank" rel="external">链接地址</a></h4><p>role中可以定义run_list与变量<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"run_list": [</span><br><span class="line">  "role[web_server]"</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>env中可以定义变量<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"chef_environment": "_default",</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/03/RSpec/" rel="next" title="RSpec">
+                <i class="fa fa-chevron-left"></i> RSpec
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/03/尹恩雪/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/02/03/Docker&Chef/"
+           data-title="Chef Vagrant Docker" data-url="http://yoursite.com/2016/02/03/Docker&Chef/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Jason Tai" />
+          <p class="site-author-name" itemprop="name">Jason Tai</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vagrant"><span class="nav-number">1.</span> <span class="nav-text">Vagrant</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u914D_u7F6E_u6587_u4EF6"><span class="nav-number">1.0.1.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u547D_u4EE4"><span class="nav-number">1.0.2.</span> <span class="nav-text">命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chef"><span class="nav-number">2.</span> <span class="nav-text">Chef</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u4F7F_u7528berkshelf__u94FE_u63A5_u5730_u5740"><span class="nav-number">2.0.1.</span> <span class="nav-text">使用berkshelf 链接地址</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chef_Cookbook"><span class="nav-number">3.</span> <span class="nav-text">Chef Cookbook</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#user__u94FE_u63A5"><span class="nav-number">3.0.1.</span> <span class="nav-text">user 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sudo__u94FE_u63A5"><span class="nav-number">3.0.2.</span> <span class="nav-text">sudo 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zsh__u94FE_u63A5"><span class="nav-number">3.0.3.</span> <span class="nav-text">zsh 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#oh_my_zsh__u94FE_u63A5"><span class="nav-number">3.0.4.</span> <span class="nav-text">oh_my_zsh 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#memcached__u94FE_u63A5"><span class="nav-number">3.0.5.</span> <span class="nav-text">memcached 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis__u94FE_u63A5"><span class="nav-number">3.0.6.</span> <span class="nav-text">redis 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysql__u94FE_u63A5"><span class="nav-number">3.0.7.</span> <span class="nav-text">mysql 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rvm__26amp_3B_26amp_3B_ruby_rvm_fw"><span class="nav-number">3.0.8.</span> <span class="nav-text">rvm && ruby rvm_fw</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nginx__u94FE_u63A5"><span class="nav-number">3.0.9.</span> <span class="nav-text">nginx 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#yum-epel__u94FE_u63A5"><span class="nav-number">3.0.10.</span> <span class="nav-text">yum-epel 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#proxcyains"><span class="nav-number">3.0.11.</span> <span class="nav-text">proxcyains</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chef_DSL__u94FE_u63A5"><span class="nav-number">4.</span> <span class="nav-text">Chef DSL 链接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#data_bag__u94FE_u63A5"><span class="nav-number">4.0.1.</span> <span class="nav-text">data bag 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bash__u94FE_u63A5"><span class="nav-number">4.0.2.</span> <span class="nav-text">bash 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git__u94FE_u63A5"><span class="nav-number">4.0.3.</span> <span class="nav-text">git 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#template__u94FE_u63A5"><span class="nav-number">4.0.4.</span> <span class="nav-text">template 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#role_and_environment_u94FE_u63A5_u5730_u5740"><span class="nav-number">4.0.5.</span> <span class="nav-text">role and environment链接地址</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason Tai</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"tjcjc"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
