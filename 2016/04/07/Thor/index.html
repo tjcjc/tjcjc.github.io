@@ -59,22 +59,28 @@
 
 
 
-<meta name="description" content="学习Fastlane基础配置123456cd project_dirgem install fastlanefastlane init#Your Apple ID (e.g. fastlane@krausefx.com):#输入你的Apple Id#输入密码
-Appfile:主要是声明一些操作时候的变量。
-12345678app_identifier &quot;tools.fastlane.app&quot;for">
+<meta name="description" content="wiki
+Thor class12345678class Test &amp;lt; Thor  desc &quot;example&quot;, &quot;an example task&quot;  def example    puts &quot;I&apos;m a thor task!&quot;  endendthor test:example
+
+remove_file: 删除文件， 可以声明全路径
+dictionary: 拷贝文件中的内容，把source">
 <meta property="og:type" content="article">
-<meta property="og:title" content="学习Fastlane">
-<meta property="og:url" content="http://yoursite.com/2016/02/03/Fastlane/index.html">
+<meta property="og:title" content="thor">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/Thor/index.html">
 <meta property="og:site_name" content="Jason Read">
-<meta property="og:description" content="学习Fastlane基础配置123456cd project_dirgem install fastlanefastlane init#Your Apple ID (e.g. fastlane@krausefx.com):#输入你的Apple Id#输入密码
-Appfile:主要是声明一些操作时候的变量。
-12345678app_identifier &quot;tools.fastlane.app&quot;for">
-<meta property="og:updated_time" content="2016-02-03T09:26:06.000Z">
+<meta property="og:description" content="wiki
+Thor class12345678class Test &amp;lt; Thor  desc &quot;example&quot;, &quot;an example task&quot;  def example    puts &quot;I&apos;m a thor task!&quot;  endendthor test:example
+
+remove_file: 删除文件， 可以声明全路径
+dictionary: 拷贝文件中的内容，把source">
+<meta property="og:updated_time" content="2016-04-15T02:05:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学习Fastlane">
-<meta name="twitter:description" content="学习Fastlane基础配置123456cd project_dirgem install fastlanefastlane init#Your Apple ID (e.g. fastlane@krausefx.com):#输入你的Apple Id#输入密码
-Appfile:主要是声明一些操作时候的变量。
-12345678app_identifier &quot;tools.fastlane.app&quot;for">
+<meta name="twitter:title" content="thor">
+<meta name="twitter:description" content="wiki
+Thor class12345678class Test &amp;lt; Thor  desc &quot;example&quot;, &quot;an example task&quot;  def example    puts &quot;I&apos;m a thor task!&quot;  endendthor test:example
+
+remove_file: 删除文件， 可以声明全路径
+dictionary: 拷贝文件中的内容，把source">
 
 
 
@@ -92,7 +98,7 @@ Appfile:主要是声明一些操作时候的变量。
   };
 </script>
 
-  <title> 学习Fastlane | Jason Read </title>
+  <title> thor | Jason Read </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -210,7 +216,7 @@ Appfile:主要是声明一些操作时候的变量。
             
             
               
-                学习Fastlane
+                thor
               
             
           </h1>
@@ -222,8 +228,8 @@ Appfile:主要是声明一些操作时候的变量。
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-02-03T17:26:06+08:00" content="2016-02-03">
-              2016-02-03
+            <time itemprop="dateCreated" datetime="2016-04-07T11:36:00+08:00" content="2016-04-07">
+              2016-04-07
             </time>
           </span>
 
@@ -233,8 +239,8 @@ Appfile:主要是声明一些操作时候的变量。
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/02/03/Fastlane/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/03/Fastlane/" itemprop="commentsCount"></span>
+                <a href="/2016/04/07/Thor/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/Thor/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -255,45 +261,20 @@ Appfile:主要是声明一些操作时候的变量。
       
 
       
-        <h1 id="u5B66_u4E60Fastlane"><a href="#u5B66_u4E60Fastlane" class="headerlink" title="学习Fastlane"></a>学习Fastlane</h1><h3 id="u57FA_u7840_u914D_u7F6E"><a href="#u57FA_u7840_u914D_u7F6E" class="headerlink" title="基础配置"></a>基础配置</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd project_dir</span><br><span class="line">gem install fastlane</span><br><span class="line">fastlane init</span><br><span class="line"><span class="comment">#Your Apple ID (e.g. fastlane<span class="doctag">@krausefx</span>.com):</span></span><br><span class="line"><span class="comment">#输入你的Apple Id</span></span><br><span class="line"><span class="comment">#输入密码</span></span><br></pre></td></tr></table></figure>
-<p><strong><a href="https://github.com/fastlane/fastlane/blob/master/docs/Appfile.md" target="_blank" rel="external">Appfile</a></strong>:主要是声明一些操作时候的变量。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">app_identifier <span class="string">"tools.fastlane.app"</span></span><br><span class="line">for_platform <span class="symbol">:ios</span> <span class="keyword">do</span></span><br><span class="line">  team_id <span class="string">'123'</span> <span class="comment"># for all iOS related things</span></span><br><span class="line">  for_lane <span class="symbol">:test</span> <span class="keyword">do</span></span><br><span class="line">    app_identifier <span class="string">'com.app.test'</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">#在其他文件中，CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)可以获取这个变量</span></span><br></pre></td></tr></table></figure>
-<p><strong><a href="https://github.com/fastlane/fastlane/tree/master/docs" target="_blank" rel="external">Fastfile</a></strong>:编写新的命令。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lane <span class="symbol">:my_lane</span> <span class="keyword">do</span></span><br><span class="line">  <span class="comment"># Whatever actions you like go in here.</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment"># fastlane my_lane 运行</span></span><br></pre></td></tr></table></figure>
-<h4 id="u5168_u5C40_u53D8_u91CF_u4E0E_u65B9_u6CD5"><a href="#u5168_u5C40_u53D8_u91CF_u4E0E_u65B9_u6CD5" class="headerlink" title="全局变量与方法"></a>全局变量与方法</h4><ol>
-<li><strong>全局变量</strong>：<br>  <code>CredentialsManager::AppfileConfig.try_fetch_value(:变量名)</code></li>
-<li><strong>运行中产生的变量</strong>:<br>  <code>Actions.lane_context[SharedValues::SIGH_PROFILE_TYPE]</code></li>
-<li><strong>打印</strong>:<br> <code>Helper.log.info</code></li>
+        <p><a href="https://github.com/erikhuda/thor/wiki" target="_blank" rel="external">wiki</a></p>
+<h3 id="Thor_class"><a href="#Thor_class" class="headerlink" title="Thor class"></a>Thor class</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="inheritance">&lt; <span class="parent">Thor</span></span></span></span><br><span class="line">  desc <span class="string">"example"</span>, <span class="string">"an example task"</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">example</span></span></span><br><span class="line">    puts <span class="string">"I'm a thor task!"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">thor <span class="symbol">test:</span>example</span><br></pre></td></tr></table></figure>
+<ol>
+<li>remove_file: 删除文件， 可以声明全路径</li>
+<li>dictionary: 拷贝文件中的内容，把source中的拷贝到target中</li>
+<li>copy_file: 可以声明全路径</li>
+<li>FileUtils.mkdir_p</li>
+<li>FileUtils.rm_p</li>
+<li>ask(“问句?”, :yellow)</li>
+<li>print_table([[]])</li>
+<li>say(“表达”, :yellow)</li>
+<li></li>
 </ol>
-<h4 id="Gym_3A_u7F16_u8BD1_u9879_u76EE_u94FE_u63A5"><a href="#Gym_3A_u7F16_u8BD1_u9879_u76EE_u94FE_u63A5" class="headerlink" title="Gym:编译项目链接"></a>Gym:编译项目<a href="https://github.com/fastlane/gym" target="_blank" rel="external">链接</a></h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gym init</span><br><span class="line"><span class="comment">#Gymfile</span></span><br><span class="line">output_directory <span class="string">"./ipas"</span> <span class="comment">#ipa的输出地址 相对于项目根目录</span></span><br><span class="line">output_name <span class="string">"IpaName"</span> <span class="comment">#ipa文件的名称</span></span><br><span class="line">provisioning_profile_path <span class="string">"/path/to/provision/"</span> <span class="comment">#编译时候的provision</span></span><br></pre></td></tr></table></figure>
-<h4 id="Match_3A_u83B7_u53D6certificates_u4E0Eprofiles_u94FE_u63A5"><a href="#Match_3A_u83B7_u53D6certificates_u4E0Eprofiles_u94FE_u63A5" class="headerlink" title="Match:获取certificates与profiles链接"></a>Match:获取certificates与profiles<a href="https://github.com/fastlane/match" target="_blank" rel="external">链接</a></h4><ul>
-<li>配置：需要一个git repo，本地的也可以</li>
-<li><code>match init</code></li>
-<li><code>git_url &quot;file:///path/to/repo.git&quot;</code></li>
-<li><code>match adhoc --readobly</code>: 会去查看repo中有没有相应的cert与profiles，如果没有的话，会新建。</li>
-<li><code>match appstore --readonly</code></li>
-<li><code>match developent --readonly</code></li>
-<li><strong>readonly</strong>: 如果不加这个选项的话，如果在repo中没有相应的文件，会从memcenter中下载，并且push到repo中。</li>
-<li><a href="https://codesigning.guide" target="_blank" rel="external">参考链接</a></li>
-<li>match主要是调用了其他的两个工具cert，与sign</li>
-</ul>
-<h4 id="cert_3A_u7BA1_u7406_u6216_u8005_u751F_u6210_u5F00_u53D1_u8BC1_u4E66_u94FE_u63A5_u5730_u5740"><a href="#cert_3A_u7BA1_u7406_u6216_u8005_u751F_u6210_u5F00_u53D1_u8BC1_u4E66_u94FE_u63A5_u5730_u5740" class="headerlink" title="cert:管理或者生成开发证书链接地址"></a>cert:管理或者生成开发证书<a href="https://github.com/fastlane/cert" target="_blank" rel="external">链接地址</a></h4><ul>
-<li>直接运行<code>cert</code>会检测本地有没有可用的证书，如果没有的话，会完成一系列的工作，直到将苹果的证书导入到本地。</li>
-</ul>
-<h4 id="sigh_3A_u7BA1_u7406_u6216_u8005_u751F_u6210profile_u94FE_u63A5_u5730_u5740"><a href="#sigh_3A_u7BA1_u7406_u6216_u8005_u751F_u6210profile_u94FE_u63A5_u5730_u5740" class="headerlink" title="sigh:管理或者生成profile链接地址"></a>sigh:管理或者生成profile<a href="https://github.com/fastlane/sigh" target="_blank" rel="external">链接地址</a></h4><ul>
-<li><code>sigh</code>:如果没有会生成再下载</li>
-<li><code>sigh --development</code>:生成dev profile</li>
-<li><code>sigh -o &quot;~/Certificates/&quot;</code>: 生成至特定的目录</li>
-<li><code>sigh download_all</code>: 下载所有的profile</li>
-<li><code>sigh --skip_install</code>: 只下载不安装</li>
-<li><code>sigh --force</code>: 强制重新生成</li>
-</ul>
-<h4 id="u4F8B_u5B50"><a href="#u4F8B_u5B50" class="headerlink" title="例子"></a>例子</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">provision_file</span><span class="params">(type=<span class="keyword">nil</span>)</span></span></span><br><span class="line">    type ||= <span class="constant">Actions</span>.lane_context[<span class="constant">SharedValues::SIGH_PROFILE_TYPE</span>].gsub(<span class="string">"-"</span>,<span class="string">""</span>)</span><br><span class="line">    <span class="constant">Helper</span>.log.info <span class="string">"---------<span class="subst">#&#123;type&#125;</span>"</span></span><br><span class="line">    env_name = <span class="string">"sigh_<span class="subst">#&#123;<span class="constant">CredentialsManager::AppfileConfig</span>.try_fetch_value(<span class="symbol">:app_identifier</span>)&#125;</span>_<span class="subst">#&#123;type&#125;</span>"</span></span><br><span class="line">    <span class="constant">Helper</span>.log.info <span class="string">"************<span class="subst">#&#123;env_name&#125;</span>"</span></span><br><span class="line">    filename = <span class="constant">ENV</span>[env_name]</span><br><span class="line">    <span class="string">"<span class="subst">#&#123;<span class="constant">PROVISION_DIR</span>&#125;</span><span class="subst">#&#123;filename&#125;</span>.mobileprovision"</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">desc <span class="string">"build adoc and publish to fir.im "</span></span><br><span class="line">lane <span class="symbol">:firim</span> <span class="keyword">do</span></span><br><span class="line">	match(<span class="symbol">type:</span> <span class="string">"adhoc"</span>)</span><br><span class="line">	gym(<span class="symbol">scheme:</span> <span class="string">"Yidian"</span>, <span class="symbol">output_name:</span> <span class="string">"YidianAdhoc"</span>, <span class="symbol">provisioning_profile_path:</span>provision_file)</span><br><span class="line">	sh <span class="string">"fir publish ../ipas/YidianAdhoc.ipa"</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h4 id="u5176_u4ED6_u547D_u4EE4_uFF1A"><a href="#u5176_u4ED6_u547D_u4EE4_uFF1A" class="headerlink" title="其他命令："></a>其他命令：</h4><ol>
-<li><a href="https://github.com/fastlane/deliver" target="_blank" rel="external">Deliver</a>:提交app</li>
-<li><a href="https://github.com/fastlane/snapshot" target="_blank" rel="external">Screenshot</a>:生成屏幕截图</li>
-<li><a href="https://github.com/fastlane/frameit" target="_blank" rel="external">Frameit</a>:将屏幕截图放置在设备的图片中。</li>
-</ol>
+<p><code>__FILE__</code> 是运行命令的文件,并不是当前的文件</p>
 
       
     </div>
@@ -305,16 +286,16 @@ Appfile:主要是声明一些操作时候的变量。
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/02/03/Docker&Chef/" rel="next" title="Chef Vagrant Docker">
-                <i class="fa fa-chevron-left"></i> Chef Vagrant Docker
+              <a href="/2016/03/21/ImageMagick/" rel="next" title="ImageMagick">
+                <i class="fa fa-chevron-left"></i> ImageMagick
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/02/03/2016-01-06/" rel="prev" title="iOS 微信支付与支付宝的集成">
-                iOS 微信支付与支付宝的集成 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/15/RSpec/" rel="prev" title="RSpec">
+                RSpec <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -341,8 +322,8 @@ Appfile:主要是声明一些操作时候的变量。
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/02/03/Fastlane/"
-           data-title="学习Fastlane" data-url="http://yoursite.com/2016/02/03/Fastlane/">
+      <div class="ds-thread" data-thread-key="2016/04/07/Thor/"
+           data-title="thor" data-url="http://yoursite.com/2016/04/07/Thor/">
       </div>
     
   </div>
@@ -387,7 +368,7 @@ Appfile:主要是声明一些操作时候的变量。
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -440,7 +421,7 @@ Appfile:主要是声明一些操作时候的变量。
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5B66_u4E60Fastlane"><span class="nav-number">1.</span> <span class="nav-text">学习Fastlane</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u57FA_u7840_u914D_u7F6E"><span class="nav-number">1.0.1.</span> <span class="nav-text">基础配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u5168_u5C40_u53D8_u91CF_u4E0E_u65B9_u6CD5"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">全局变量与方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gym_3A_u7F16_u8BD1_u9879_u76EE_u94FE_u63A5"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">Gym:编译项目链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Match_3A_u83B7_u53D6certificates_u4E0Eprofiles_u94FE_u63A5"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">Match:获取certificates与profiles链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cert_3A_u7BA1_u7406_u6216_u8005_u751F_u6210_u5F00_u53D1_u8BC1_u4E66_u94FE_u63A5_u5730_u5740"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">cert:管理或者生成开发证书链接地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sigh_3A_u7BA1_u7406_u6216_u8005_u751F_u6210profile_u94FE_u63A5_u5730_u5740"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">sigh:管理或者生成profile链接地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u4F8B_u5B50"><span class="nav-number">1.0.1.6.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u5176_u4ED6_u547D_u4EE4_uFF1A"><span class="nav-number">1.0.1.7.</span> <span class="nav-text">其他命令：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Thor_class"><span class="nav-number">1.</span> <span class="nav-text">Thor class</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
