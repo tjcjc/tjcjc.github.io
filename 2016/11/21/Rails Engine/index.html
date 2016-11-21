@@ -59,16 +59,22 @@
 
 
 
-<meta name="description">
+<meta name="description" content="header: Rails Enginetitle: Rails Enginedate: 2016.02.15 15:24tags: [Rails]
+
+Rails Template如果要按照最新的rails的来新建项目的话，可以使用这个命令rails new myapp -T -m https://raw.github.com/RailsApps/rails-composer/master/com">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jason Read">
+<meta property="og:title" content="Rails Engine">
 <meta property="og:url" content="http://yoursite.com/2016/11/21/Rails Engine/index.html">
 <meta property="og:site_name" content="Jason Read">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-11-21T15:53:28.000Z">
+<meta property="og:description" content="header: Rails Enginetitle: Rails Enginedate: 2016.02.15 15:24tags: [Rails]
+
+Rails Template如果要按照最新的rails的来新建项目的话，可以使用这个命令rails new myapp -T -m https://raw.github.com/RailsApps/rails-composer/master/com">
+<meta property="og:updated_time" content="2016-11-21T15:54:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jason Read">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Rails Engine">
+<meta name="twitter:description" content="header: Rails Enginetitle: Rails Enginedate: 2016.02.15 15:24tags: [Rails]
+
+Rails Template如果要按照最新的rails的来新建项目的话，可以使用这个命令rails new myapp -T -m https://raw.github.com/RailsApps/rails-composer/master/com">
 
 
 
@@ -86,7 +92,7 @@
   };
 </script>
 
-  <title>  | Jason Read </title>
+  <title> Rails Engine | Jason Read </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -204,7 +210,7 @@
             
             
               
-                
+                Rails Engine
               
             
           </h1>
@@ -216,7 +222,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T23:53:28+08:00" content="2016-11-21">
+            <time itemprop="dateCreated" datetime="2016-11-21T23:54:23+08:00" content="2016-11-21">
               2016-11-21
             </time>
           </span>
@@ -249,7 +255,37 @@
       
 
       
-        
+        <p>header: Rails Engine<br>title: Rails Engine<br>date: 2016.02.15 15:24<br>tags: [Rails]</p>
+<hr>
+<h3 id="Rails_Template"><a href="#Rails_Template" class="headerlink" title="Rails Template"></a>Rails Template</h3><p>如果要按照最新的rails的来新建项目的话，可以使用这个命令<code>rails new myapp -T -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb --edge</code><br>自己写template<a href="http://guides.rubyonrails.org/rails_application_templates.html" target="_blank" rel="external">链接</a><br>可以用的命令<a href="https://github.com/erikhuda/thor/blob/master/lib/thor/actions.rb" target="_blank" rel="external">链接</a></p>
+<h3 id="u907F_u514D_u6BCF_u6B21_u90FD_u8F93_u5165bundle_exec"><a href="#u907F_u514D_u6BCF_u6B21_u90FD_u8F93_u5165bundle_exec" class="headerlink" title="避免每次都输入bundle exec"></a>避免每次都输入bundle exec</h3><p><code>bundle install --binstubs=./bundler_stubs</code><br><code>bundle exec spring binstub --all</code></p>
+<h3 id="Rails_Engine_u5206_u89E3_u9879_u76EE"><a href="#Rails_Engine_u5206_u89E3_u9879_u76EE" class="headerlink" title="Rails Engine分解项目"></a>Rails Engine分解项目</h3><p><strong>参考链接</strong></p>
+<ol>
+<li><a href="http://halyph.com/blog/2015/04/04/rails-architecture-and-scalability-issues/" target="_blank" rel="external">Rails Architecture and Scalability</a></li>
+<li><a href="https://github.com/JuanitoFatas/Guides/blob/master/guides/edge-translation/engines-zh_CN.md" target="_blank" rel="external">Engine</a></li>
+<li><a href="https://ruby-china.org/topics/28538" target="_blank" rel="external">讨论</a></li>
+<li><a href="https://github.com/spree/spree" target="_blank" rel="external">Spree</a></li>
+</ol>
+<h3 id="u65B0_u5EFAEngine"><a href="#u65B0_u5EFAEngine" class="headerlink" title="新建Engine"></a>新建Engine</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 新建engine</span></span><br><span class="line">system(<span class="string">'rails plugin new zangcun-core --mountable -T --edge --dummy-path=spec/dummy'</span>)</span><br><span class="line"><span class="comment"># engine_root/config/spring.rb</span></span><br><span class="line"><span class="constant">Spring</span>.application_root = <span class="string">"spec/dummy"</span></span><br><span class="line"><span class="comment"># engine_root/spec/dummy/config/spring.rb</span></span><br><span class="line"><span class="constant">Spring</span>.application_root = <span class="string">""</span></span><br><span class="line"><span class="comment"># engine_root/spec/dummy/</span></span><br><span class="line">system(<span class="string">'bundle exec spring binstub --all'</span>)</span><br><span class="line"><span class="comment"># engine_root/spec/dummy/bin/spring</span></span><br><span class="line"><span class="comment"># 在第二行添加</span></span><br><span class="line"><span class="constant">ENV</span>[<span class="string">'BUNDLE_GEMFILE'</span>] ||= <span class="constant">File</span>.expand_path(<span class="string">'../../../../Gemfile'</span>, __FILE_<span class="number">_</span>)</span><br><span class="line"><span class="comment"># engine_root</span></span><br><span class="line">system(<span class="string">'bin/rails g rspec:install'</span>)</span><br><span class="line"><span class="comment"># engine_root</span></span><br><span class="line">system(<span class="string">'guard init'</span>)</span><br><span class="line"><span class="comment"># 将guard file中对rspec中的监听方法改为</span></span><br><span class="line">guard <span class="symbol">:rspec</span>, <span class="symbol">cmd:</span> <span class="string">"spec/dummy/bin/rspec"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># engine_root/spec/spec_helper.rb</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="string">'faker'</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'factory_girl_rails'</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'database_cleaner'</span></span><br><span class="line"><span class="constant">FactoryGirl</span>.definition_file_paths = [</span><br><span class="line">  <span class="constant">File</span>.expand_path(<span class="string">'../factories'</span>, __FILE_<span class="number">_</span>)</span><br><span class="line">]</span><br><span class="line"><span class="constant">FactoryGirl</span>.find_definitions</span><br><span class="line"><span class="constant">RSpec</span>.configure <span class="keyword">do</span> |config|</span><br><span class="line">    <span class="comment"># rspec-expectations config goes here. You can use an alternate</span></span><br><span class="line">    <span class="comment"># assertion/expectation library such as wrong or the stdlib/minitest</span></span><br><span class="line">    <span class="comment"># assertions if you prefer.</span></span><br><span class="line">    config.before(<span class="symbol">:suite</span>) &#123; <span class="constant">FactoryGirl</span>.reload &#125;</span><br><span class="line">    config.<span class="keyword">include</span> <span class="constant">FactoryGirl::Syntax::Methods</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># engine_root/spec/rails_helper.rb</span></span><br><span class="line"><span class="constant">ENV</span>[<span class="string">"RAILS_ENV"</span>] ||= <span class="string">'test'</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'spec_helper'</span></span><br><span class="line"><span class="keyword">require</span> <span class="constant">File</span>.expand_path(<span class="string">"../dummy/config/environment"</span>, __FILE_<span class="number">_</span>)</span><br><span class="line"><span class="keyword">require</span> <span class="string">'rspec/rails'</span></span><br><span class="line"><span class="constant">ActiveRecord::Migrator</span>.migrations_path = [<span class="string">"<span class="subst">#&#123;<span class="constant">Rails</span>.application.root&#125;</span>/db/migrate"</span>]</span><br><span class="line"><span class="constant">ActiveRecord::Migration</span>.maintain_test_schema!</span><br><span class="line"><span class="constant">RSpec</span>.configure <span class="keyword">do</span> |config|</span><br><span class="line">  config.fixture_path = <span class="string">"../factories"</span></span><br><span class="line"></span><br><span class="line">  config.use_transactional_fixtures = <span class="keyword">true</span></span><br><span class="line"></span><br><span class="line">  config.infer_spec_type_from_file_location!</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="Core"><a href="#Core" class="headerlink" title="Core"></a>Core</h3><p>将核心的逻辑写入到Core中<br><code>rails plugin new zangcun-core --mountable -T --edge --dummy-path=spec/dummy</code> 加中划线会把core添加在zangcun的moudle中</p>
+<h3 id="backend__u540E_u53F0"><a href="#backend__u540E_u53F0" class="headerlink" title="backend 后台"></a>backend 后台</h3><p><code>rails plugin new zangcun-backend --mountable -T --edge --dummy-path=spec/dummy</code> </p>
+<h3 id="Frontend__u524D_u7AEF"><a href="#Frontend__u524D_u7AEF" class="headerlink" title="Frontend 前端"></a>Frontend 前端</h3><p><code>rails plugin new ydjc-front --mountable -T --edge --dummy-path=spec/dummy</code><br><code>$LOAD_PATH.unshift(File.dirname(__FILE__) + &#39;/../../../ydjc_core/lib&#39;)</code></p>
+<h3 id="Api"><a href="#Api" class="headerlink" title="Api"></a>Api</h3><p><code>rails plugin new ydjc-front --mountable -T --edge --dummy-path=spec/dummy</code><br><code>$LOAD_PATH.unshift(File.dirname(__FILE__) + &#39;/../../../ydjc_core/lib&#39;)</code></p>
+<h3 id="Engine_u89C4_u5219"><a href="#Engine_u89C4_u5219" class="headerlink" title="Engine规则"></a>Engine规则</h3><p>如果需要在Engine使用其他的Gem包，需要在Gemfile中添加，然后在gemspec添加add_dependency<br><strong>修改Engine的generator框架</strong></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">config.generators <span class="keyword">do</span> |g|</span><br><span class="line">   g.test_framework <span class="symbol">:rspec</span></span><br><span class="line">   g.fixture_replacement <span class="symbol">:factory_girl</span>, <span class="symbol">:dir</span> =&gt; <span class="string">'spec/factories'</span></span><br><span class="line">   g.template_engine <span class="symbol">:slim</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="migration"><a href="#migration" class="headerlink" title="migration"></a>migration</h3><p>在宿主中运行bin/rake railties:install:migrations 会把Engine中的migration拷贝至宿主中。</p>
+<h3 id="u4FEE_u6539_u6D4B_u8BD5_u89C4_u5219"><a href="#u4FEE_u6539_u6D4B_u8BD5_u89C4_u5219" class="headerlink" title="修改测试规则"></a>修改测试规则</h3><p>在每个Engine中测试各自的spec，需要修改<strong>spec_rails.rb</strong>文件</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">ActiveRecord::Migrator</span>.migrations_path = [<span class="string">"<span class="subst">#&#123;<span class="constant">Rails</span>.application.root&#125;</span>/db/migrate"</span>]</span><br><span class="line"><span class="keyword">require</span> <span class="constant">File</span>.expand_path(<span class="string">"../dummy/config/environment"</span>, __FILE_<span class="number">_</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Gem"><a href="#Gem" class="headerlink" title="Gem"></a>Gem</h3><p><del>在gemspec使用本地的gem作为depencence</del><br><del>在gemspec中使用git上面的gem作为depencence</del></p>
+<p><code>$LOADPATH</code>是ruby的搜索路径。<br> 所以如果需要require其他的Gem包，就需要将其他的gem包的lib目录添加至LOADPATH中。</p>
+<h3 id="Assets"><a href="#Assets" class="headerlink" title="Assets"></a>Assets</h3><p>如果需要使用Engine中的assets，需要把这些文件添加至precompile中。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在engine文件添加</span></span><br><span class="line"> initializer <span class="string">"ydjc.assets.precompile"</span>, <span class="symbol">group:</span> <span class="symbol">:all</span> <span class="keyword">do</span> |app|</span><br><span class="line">   app.config.assets.precompile += <span class="string">%w[</span><br><span class="line">     ydjc/front/front.css</span><br><span class="line">     ydjc/front/front.js</span><br><span class="line">   ]</span></span><br><span class="line"> <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>引用时候需要使用全路径<code>stylesheet_link_tag &quot;yjdc/front/front&quot;</code><br>因为Rails只会搜索Engine中的app/assests/stylesheets目录。</p>
+<h3 id="u6D4B_u8BD5"><a href="#u6D4B_u8BD5" class="headerlink" title="测试"></a>测试</h3><h3 id="u65B9_u4FBF_u8C03_u8BD5"><a href="#u65B9_u4FBF_u8C03_u8BD5" class="headerlink" title="方便调试"></a>方便调试</h3><p>web-console<br>better_errors<br>byebug<br>pry-rails</p>
+<h3 id="u6027_u80FD_u8C03_u4F18"><a href="#u6027_u80FD_u8C03_u4F18" class="headerlink" title="性能调优"></a>性能调优</h3><p>request-log-analyzer<br>derailed_benchmarks<br>ruby-prof<br>oink <a href="https://github.com/noahd1/oink" target="_blank" rel="external">https://github.com/noahd1/oink</a><br>代码规范rubocop <a href="https://github.com/bbatsov/rubocop" target="_blank" rel="external">https://github.com/bbatsov/rubocop</a></p>
+<h3 id="u95EE_u9898"><a href="#u95EE_u9898" class="headerlink" title="问题"></a>问题</h3><h4 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h4><p>spring在engine中无法使用，在test/dummy<br>需要在springload之前，先声明<code>ENV[&#39;BUNDLE_GEMFILE&#39;] ||= File.expand_path(&#39;../../../../Gemfile&#39;, __FILE__)</code></p>
+<h4 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h4><p>需要在application中设置，Engine中设置没有用.</p>
+
       
     </div>
 
@@ -260,16 +296,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/21/Rails Migration/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2016/11/21/Rails Migration/" rel="next" title="Rails Migration">
+                <i class="fa fa-chevron-left"></i> Rails Migration
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/21/RSpec/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/21/RSpec/" rel="prev" title="RSpec">
+                RSpec <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -297,7 +333,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/11/21/Rails Engine/"
-           data-title="" data-url="http://yoursite.com/2016/11/21/Rails Engine/">
+           data-title="Rails Engine" data-url="http://yoursite.com/2016/11/21/Rails Engine/">
       </div>
     
   </div>
@@ -395,7 +431,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rails_Template"><span class="nav-number">1.</span> <span class="nav-text">Rails Template</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u907F_u514D_u6BCF_u6B21_u90FD_u8F93_u5165bundle_exec"><span class="nav-number">2.</span> <span class="nav-text">避免每次都输入bundle exec</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rails_Engine_u5206_u89E3_u9879_u76EE"><span class="nav-number">3.</span> <span class="nav-text">Rails Engine分解项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u65B0_u5EFAEngine"><span class="nav-number">4.</span> <span class="nav-text">新建Engine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Core"><span class="nav-number">5.</span> <span class="nav-text">Core</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backend__u540E_u53F0"><span class="nav-number">6.</span> <span class="nav-text">backend 后台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Frontend__u524D_u7AEF"><span class="nav-number">7.</span> <span class="nav-text">Frontend 前端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Api"><span class="nav-number">8.</span> <span class="nav-text">Api</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Engine_u89C4_u5219"><span class="nav-number">9.</span> <span class="nav-text">Engine规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#migration"><span class="nav-number">10.</span> <span class="nav-text">migration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4FEE_u6539_u6D4B_u8BD5_u89C4_u5219"><span class="nav-number">11.</span> <span class="nav-text">修改测试规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gem"><span class="nav-number">12.</span> <span class="nav-text">Gem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Assets"><span class="nav-number">13.</span> <span class="nav-text">Assets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6D4B_u8BD5"><span class="nav-number">14.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u65B9_u4FBF_u8C03_u8BD5"><span class="nav-number">15.</span> <span class="nav-text">方便调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6027_u80FD_u8C03_u4F18"><span class="nav-number">16.</span> <span class="nav-text">性能调优</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u95EE_u9898"><span class="nav-number">17.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#spring"><span class="nav-number">17.1.</span> <span class="nav-text">spring</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cache"><span class="nav-number">17.2.</span> <span class="nav-text">cache</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

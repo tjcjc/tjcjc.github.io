@@ -59,16 +59,37 @@
 
 
 
-<meta name="description">
+<meta name="description" content="header: RSpectitle: RSpecdata: 2016.02.18 16:02tags: [Rails, RSpec]
+
+RSpec 链接
+model spec 链接
+controler spec 链接
+exp 链接
+
+Fatorygirls 链接配置123456# spec_helper.rbRSpec.configure do |config|	config.include F">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jason Read">
+<meta property="og:title" content="RSpec">
 <meta property="og:url" content="http://yoursite.com/2016/11/21/RSpec/index.html">
 <meta property="og:site_name" content="Jason Read">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-11-21T15:53:28.000Z">
+<meta property="og:description" content="header: RSpectitle: RSpecdata: 2016.02.18 16:02tags: [Rails, RSpec]
+
+RSpec 链接
+model spec 链接
+controler spec 链接
+exp 链接
+
+Fatorygirls 链接配置123456# spec_helper.rbRSpec.configure do |config|	config.include F">
+<meta property="og:updated_time" content="2016-11-21T15:54:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jason Read">
-<meta name="twitter:description">
+<meta name="twitter:title" content="RSpec">
+<meta name="twitter:description" content="header: RSpectitle: RSpecdata: 2016.02.18 16:02tags: [Rails, RSpec]
+
+RSpec 链接
+model spec 链接
+controler spec 链接
+exp 链接
+
+Fatorygirls 链接配置123456# spec_helper.rbRSpec.configure do |config|	config.include F">
 
 
 
@@ -86,7 +107,7 @@
   };
 </script>
 
-  <title>  | Jason Read </title>
+  <title> RSpec | Jason Read </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -204,7 +225,7 @@
             
             
               
-                
+                RSpec
               
             
           </h1>
@@ -216,7 +237,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T23:53:28+08:00" content="2016-11-21">
+            <time itemprop="dateCreated" datetime="2016-11-21T23:54:23+08:00" content="2016-11-21">
               2016-11-21
             </time>
           </span>
@@ -249,7 +270,39 @@
       
 
       
-        
+        <p>header: RSpec<br>title: RSpec<br>data: 2016.02.18 16:02<br>tags: [Rails, RSpec]</p>
+<hr>
+<h3 id="RSpec__u94FE_u63A5"><a href="#RSpec__u94FE_u63A5" class="headerlink" title="RSpec 链接"></a>RSpec <a href="http://www.relishapp.com/rspec/rspec-rails/v/3-4/docs" target="_blank" rel="external">链接</a></h3><ol>
+<li>model spec <a href="https://www.relishapp.com/rspec/rspec-rails/docs/model-specs" target="_blank" rel="external">链接</a></li>
+<li>controler spec <a href="http://www.relishapp.com/rspec/rspec-rails/v/3-4/docs/controller-specs" target="_blank" rel="external">链接</a></li>
+<li>exp <a href="https://github.com/rspec/rspec-expectations" target="_blank" rel="external">链接</a></li>
+</ol>
+<h3 id="Fatorygirls__u94FE_u63A5"><a href="#Fatorygirls__u94FE_u63A5" class="headerlink" title="Fatorygirls 链接"></a>Fatorygirls <a href="http://www.rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md#Defining_factories" target="_blank" rel="external">链接</a></h3><h4 id="u914D_u7F6E"><a href="#u914D_u7F6E" class="headerlink" title="配置"></a>配置</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># spec_helper.rb</span></span><br><span class="line"><span class="constant">RSpec</span>.configure <span class="keyword">do</span> |config|</span><br><span class="line">	config.<span class="keyword">include</span> <span class="constant">FactoryGirl::Syntax::Methods</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="constant">FactoryGirl</span>.definition_file_paths = [<span class="constant">File</span>.expand_path(<span class="string">'../factories'</span>, __FILE_<span class="number">_</span>)]</span><br><span class="line"><span class="constant">FactoryGirl</span>.find_definitions</span><br></pre></td></tr></table></figure>
+<h3 id="Faker"><a href="#Faker" class="headerlink" title="Faker"></a>Faker</h3><h3 id="DatabaseCleaner__u94FE_u63A5"><a href="#DatabaseCleaner__u94FE_u63A5" class="headerlink" title="DatabaseCleaner 链接"></a>DatabaseCleaner <a href="https://github.com/DatabaseCleaner/database_cleaner" target="_blank" rel="external">链接</a></h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># spec_helper.rb</span></span><br><span class="line"><span class="constant">RSpec</span>.configure <span class="keyword">do</span> |config|</span><br><span class="line">    config.before(<span class="symbol">:suite</span>) <span class="keyword">do</span></span><br><span class="line">        <span class="constant">DatabaseCleaner</span>.strategy = <span class="symbol">:transaction</span></span><br><span class="line">        <span class="constant">DatabaseCleaner</span>.clean_with(<span class="symbol">:truncation</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    config.around(<span class="symbol">:each</span>) <span class="keyword">do</span> |example|</span><br><span class="line">        <span class="constant">DatabaseCleaner</span>.cleaning <span class="keyword">do</span></span><br><span class="line">          example.run</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="cancan"><a href="#cancan" class="headerlink" title="cancan"></a>cancan</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">"cancan/matchers"</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line">ability.should be_able_to(<span class="symbol">:destroy</span>, <span class="constant">Project</span>.new(<span class="symbol">:user</span> =&gt; user))</span><br><span class="line">ability.should_not be_able_to(<span class="symbol">:destroy</span>, <span class="constant">Project</span>.new)</span><br></pre></td></tr></table></figure>
+<h3 id="View"><a href="#View" class="headerlink" title="View"></a>View</h3><h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># engine routes</span></span><br><span class="line">routes &#123; <span class="constant">Zangcun::Backend::Engine</span>.routes &#125;</span><br><span class="line">expect(response).to redirect_to(<span class="string">"/"</span>)</span><br><span class="line"></span><br><span class="line">render_views			<span class="comment">#是否渲染view</span></span><br><span class="line">render_views <span class="keyword">false</span>		<span class="comment">#不渲染view</span></span><br></pre></td></tr></table></figure>
+<h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="Api__u94FE_u63A5"><a href="#Api__u94FE_u63A5" class="headerlink" title="Api 链接"></a>Api <a href="https://github.com/brooklynDev/airborne" target="_blank" rel="external">链接</a></h3><ol>
+<li>变量<ol>
+<li>json_body: 获取json的返回结果</li>
+<li>response: 返回结果</li>
+<li>headers: 返回的头</li>
+<li>body: http请求的内容</li>
+<li>json_body: http请求的内容</li>
+</ol>
+</li>
+<li>exception<ol>
+<li>expect_json_types(“foo.address”, :string) 检查返回字段的类型</li>
+<li>expect_json(“foo.address”, 内容) 检查返回字段的内容</li>
+<li>expect_json_keys 检查keys</li>
+<li>expect_json_sizes 检查内容的个数 或者检查是否为数组</li>
+<li>expect_status 检查状态</li>
+<li>expect_header 检查header内容</li>
+</ol>
+</li>
+</ol>
+<p>测试xml请求<br><code>request.env[&quot;CONTENT_TYPE&quot;] = &quot;application/xml&quot;</code></p>
+
       
     </div>
 
@@ -260,16 +313,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/21/Rails Engine/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2016/11/21/Rails Engine/" rel="next" title="Rails Engine">
+                <i class="fa fa-chevron-left"></i> Rails Engine
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/21/软件安装方法/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/21/软件安装方法/" rel="prev" title="软件安装方法">
+                软件安装方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -297,7 +350,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/11/21/RSpec/"
-           data-title="" data-url="http://yoursite.com/2016/11/21/RSpec/">
+           data-title="RSpec" data-url="http://yoursite.com/2016/11/21/RSpec/">
       </div>
     
   </div>
@@ -395,7 +448,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RSpec__u94FE_u63A5"><span class="nav-number">1.</span> <span class="nav-text">RSpec 链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fatorygirls__u94FE_u63A5"><span class="nav-number">2.</span> <span class="nav-text">Fatorygirls 链接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u914D_u7F6E"><span class="nav-number">2.1.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Faker"><span class="nav-number">3.</span> <span class="nav-text">Faker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DatabaseCleaner__u94FE_u63A5"><span class="nav-number">4.</span> <span class="nav-text">DatabaseCleaner 链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cancan"><span class="nav-number">5.</span> <span class="nav-text">cancan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View"><span class="nav-number">6.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller"><span class="nav-number">7.</span> <span class="nav-text">Controller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model"><span class="nav-number">8.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Api__u94FE_u63A5"><span class="nav-number">9.</span> <span class="nav-text">Api 链接</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

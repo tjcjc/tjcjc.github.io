@@ -59,16 +59,34 @@
 
 
 
-<meta name="description">
+<meta name="description" content="header: Rails Migrationtitle: Rails Migrationdate: 2016.02.14 14:40tags: [Rails]
+
+create_table方法123create_table :table_name do |t|	t.string name, limit: 60end
+可选参数:
+
+id: 是否需要一个自增的id
+primary_key: 声明主键字">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jason Read">
+<meta property="og:title" content="Rails Migration">
 <meta property="og:url" content="http://yoursite.com/2016/11/21/Rails Migration/index.html">
 <meta property="og:site_name" content="Jason Read">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-11-21T15:53:28.000Z">
+<meta property="og:description" content="header: Rails Migrationtitle: Rails Migrationdate: 2016.02.14 14:40tags: [Rails]
+
+create_table方法123create_table :table_name do |t|	t.string name, limit: 60end
+可选参数:
+
+id: 是否需要一个自增的id
+primary_key: 声明主键字">
+<meta property="og:updated_time" content="2016-11-21T15:54:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jason Read">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Rails Migration">
+<meta name="twitter:description" content="header: Rails Migrationtitle: Rails Migrationdate: 2016.02.14 14:40tags: [Rails]
+
+create_table方法123create_table :table_name do |t|	t.string name, limit: 60end
+可选参数:
+
+id: 是否需要一个自增的id
+primary_key: 声明主键字">
 
 
 
@@ -86,7 +104,7 @@
   };
 </script>
 
-  <title>  | Jason Read </title>
+  <title> Rails Migration | Jason Read </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -204,7 +222,7 @@
             
             
               
-                
+                Rails Migration
               
             
           </h1>
@@ -216,7 +234,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T23:53:28+08:00" content="2016-11-21">
+            <time itemprop="dateCreated" datetime="2016-11-21T23:54:23+08:00" content="2016-11-21">
               2016-11-21
             </time>
           </span>
@@ -249,7 +267,32 @@
       
 
       
-        
+        <p>header: Rails Migration<br>title: Rails Migration<br>date: 2016.02.14 14:40<br>tags: [Rails]</p>
+<hr>
+<h4 id="create_table_u65B9_u6CD5"><a href="#create_table_u65B9_u6CD5" class="headerlink" title="create_table方法"></a>create_table方法</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create_table <span class="symbol">:table_name</span> <span class="keyword">do</span> |t|</span><br><span class="line">	t.string name, <span class="symbol">limit:</span> <span class="number">60</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><strong>可选参数</strong>:</p>
+<ol>
+<li>id: 是否需要一个自增的id</li>
+<li>primary_key: 声明主键字段</li>
+<li>force: 在创建之前先把表删除，默认为false，也可设置为cascade，会删除关联表</li>
+<li>options: 其他的选项</li>
+</ol>
+<h4 id="column_u65B9_u6CD5"><a href="#column_u65B9_u6CD5" class="headerlink" title="column方法"></a>column方法</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t.column name, type, options</span><br><span class="line"><span class="comment"># type有一下种类: :primary_key, :string, :text, :integer, :float, :decimal, :datetime, :time, :date, :binary, :boolean</span></span><br></pre></td></tr></table></figure>
+<p><strong>可选参数</strong></p>
+<ol>
+<li>limit: 长度</li>
+<li>default: 默认值</li>
+<li>null: 是否允许为空</li>
+<li>index: 建立该字段的索引</li>
+<li>precision, scale: 声明float时候可用</li>
+</ol>
+<p><strong>Integer 参数</strong></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">type_to_sql</span><span class="params">(type, limit = <span class="keyword">nil</span>, precision = <span class="keyword">nil</span>, scale = <span class="keyword">nil</span>)</span></span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">super</span> <span class="keyword">unless</span> type.to_s == <span class="string">'integer'</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> limit</span><br><span class="line">  <span class="keyword">when</span> <span class="number">1</span>; <span class="string">'tinyint'</span></span><br><span class="line">  <span class="keyword">when</span> <span class="number">2</span>; <span class="string">'smallint'</span></span><br><span class="line">  <span class="keyword">when</span> <span class="number">3</span>; <span class="string">'mediumint'</span></span><br><span class="line">  <span class="keyword">when</span> <span class="keyword">nil</span>, <span class="number">4</span>, <span class="number">11</span>; <span class="string">'int(11)'</span>  <span class="comment"># compatibility with MySQL default</span></span><br><span class="line">  <span class="keyword">when</span> <span class="number">5</span>..<span class="number">8</span>; <span class="string">'bigint'</span></span><br><span class="line">  <span class="keyword">else</span> raise(<span class="constant">ActiveRecordError</span>, <span class="string">"No integer type has byte size <span class="subst">#&#123;limit&#125;</span>"</span>)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ActiveRecord Migrate</span></span><br><span class="line">create_table <span class="string">'example'</span> <span class="keyword">do</span> |t|</span><br><span class="line">  t.integer <span class="symbol">:int</span>                 <span class="comment"># int (4 bytes, max 2,147,483,647)</span></span><br><span class="line">  t.integer <span class="symbol">:int1</span>, <span class="symbol">:limit</span> =&gt; <span class="number">1</span>   <span class="comment"># tinyint (1 byte, -128 to 127)</span></span><br><span class="line">  t.integer <span class="symbol">:int2</span>, <span class="symbol">:limit</span> =&gt; <span class="number">2</span>   <span class="comment"># smallint (2 bytes, max 32,767)</span></span><br><span class="line">  t.integer <span class="symbol">:int3</span>, <span class="symbol">:limit</span> =&gt; <span class="number">3</span>   <span class="comment"># mediumint (3 bytes, max 8,388,607)</span></span><br><span class="line">  t.integer <span class="symbol">:int4</span>, <span class="symbol">:limit</span> =&gt; <span class="number">4</span>   <span class="comment"># int (4 bytes)</span></span><br><span class="line">  t.integer <span class="symbol">:int5</span>, <span class="symbol">:limit</span> =&gt; <span class="number">5</span>   <span class="comment"># bigint (8 bytes, max 9,223,372,036,854,775,807)</span></span><br><span class="line">  t.integer <span class="symbol">:int8</span>, <span class="symbol">:limit</span> =&gt; <span class="number">8</span>   <span class="comment"># bigint (8 bytes)</span></span><br><span class="line">  t.integer <span class="symbol">:int11</span>, <span class="symbol">:limit</span> =&gt; <span class="number">11</span> <span class="comment"># int (4 bytes)</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="index_u65B9_u6CD5"><a href="#index_u65B9_u6CD5" class="headerlink" title="index方法"></a>index方法</h4><p>新建一个索引<br><code>t.index [:index], name: &quot;index_name&quot;</code></p>
+<h4 id="references_u65B9_u6CD5"><a href="#references_u65B9_u6CD5" class="headerlink" title="references方法"></a>references方法</h4><p>等同于belongs_to<br><code>t.belongs_to :user, foreign_key: true</code></p>
+<h4 id="primary_key_u65B9_u6CD5"><a href="#primary_key_u65B9_u6CD5" class="headerlink" title="primary_key方法"></a>primary_key方法</h4><p>定义主键</p>
+<p>同sql相关的内容<br><a href="https://github.com/jeremyevans/sequel" target="_blank" rel="external">Sequel</a></p>
+
       
     </div>
 
@@ -260,16 +303,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/21/Thor/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2016/11/21/Thor/" rel="next" title="Thor">
+                <i class="fa fa-chevron-left"></i> Thor
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/21/Rails Engine/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/21/Rails Engine/" rel="prev" title="Rails Engine">
+                Rails Engine <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -297,7 +340,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/11/21/Rails Migration/"
-           data-title="" data-url="http://yoursite.com/2016/11/21/Rails Migration/">
+           data-title="Rails Migration" data-url="http://yoursite.com/2016/11/21/Rails Migration/">
       </div>
     
   </div>
@@ -395,7 +438,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#create_table_u65B9_u6CD5"><span class="nav-number">1.</span> <span class="nav-text">create_table方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#column_u65B9_u6CD5"><span class="nav-number">2.</span> <span class="nav-text">column方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#index_u65B9_u6CD5"><span class="nav-number">3.</span> <span class="nav-text">index方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#references_u65B9_u6CD5"><span class="nav-number">4.</span> <span class="nav-text">references方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#primary_key_u65B9_u6CD5"><span class="nav-number">5.</span> <span class="nav-text">primary_key方法</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
