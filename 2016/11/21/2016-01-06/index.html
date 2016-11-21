@@ -1,0 +1,806 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jason Read" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+
+
+
+
+
+
+<meta name="description" content="title: iOS 微信支付与支付宝的集成
+header: iOS 微信支付与支付宝的集成微信参考地址
+
+开通准备
+微信文档
+wx_pay
+Alamofire
+
+服务器: Ruby on Rails
+配置
+使用了Gem: wx_pay在Gemfile中添加:gem &amp;#39;wx_pay&amp;#39;在config/initializers/下的ruby文件中添加配置12345678910requi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wed Jan 06 2016 00:00:00 GMT+0800 (CST)">
+<meta property="og:url" content="http://yoursite.com/2016/11/21/2016-01-06/index.html">
+<meta property="og:site_name" content="Jason Read">
+<meta property="og:description" content="title: iOS 微信支付与支付宝的集成
+header: iOS 微信支付与支付宝的集成微信参考地址
+
+开通准备
+微信文档
+wx_pay
+Alamofire
+
+服务器: Ruby on Rails
+配置
+使用了Gem: wx_pay在Gemfile中添加:gem &amp;#39;wx_pay&amp;#39;在config/initializers/下的ruby文件中添加配置12345678910requi">
+<meta property="og:updated_time" content="2016-11-21T15:50:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wed Jan 06 2016 00:00:00 GMT+0800 (CST)">
+<meta name="twitter:description" content="title: iOS 微信支付与支付宝的集成
+header: iOS 微信支付与支付宝的集成微信参考地址
+
+开通准备
+微信文档
+wx_pay
+Alamofire
+
+服务器: Ruby on Rails
+配置
+使用了Gem: wx_pay在Gemfile中添加:gem &amp;#39;wx_pay&amp;#39;在config/initializers/下的ruby文件中添加配置12345678910requi">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Wed Jan 06 2016 00:00:00 GMT+0800 (CST) | Jason Read </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jason Read</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Wed Jan 06 2016 00:00:00 GMT+0800 (CST)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-21T23:50:57+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/21/2016-01-06/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/21/2016-01-06/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>title: iOS 微信支付与支付宝的集成</p>
+<h2 id="header_3A_iOS__u5FAE_u4FE1_u652F_u4ED8_u4E0E_u652F_u4ED8_u5B9D_u7684_u96C6_u6210"><a href="#header_3A_iOS__u5FAE_u4FE1_u652F_u4ED8_u4E0E_u652F_u4ED8_u5B9D_u7684_u96C6_u6210" class="headerlink" title="header: iOS 微信支付与支付宝的集成"></a>header: iOS 微信支付与支付宝的集成</h2><h2 id="u5FAE_u4FE1"><a href="#u5FAE_u4FE1" class="headerlink" title="微信"></a>微信</h2><p><strong>参考地址</strong></p>
+<ul>
+<li><a href="http://kf.qq.com/faq/120911VrYVrA150906F3qqY3.html" target="_blank" rel="external">开通准备</a></li>
+<li><a href="https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=8_1" target="_blank" rel="external">微信文档</a></li>
+<li><a href="https://github.com/jasl/wx_pay" target="_blank" rel="external">wx_pay</a></li>
+<li><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="external">Alamofire</a></li>
+</ul>
+<h3 id="u670D_u52A1_u5668_3A_Ruby_on_Rails"><a href="#u670D_u52A1_u5668_3A_Ruby_on_Rails" class="headerlink" title="服务器: Ruby on Rails"></a>服务器: Ruby on Rails</h3><hr>
+<p><strong>配置</strong></p>
+<p>使用了Gem: <a href="https://github.com/jasl/wx_pay" target="_blank" rel="external">wx_pay</a><br>在Gemfile中添加:<br><code>gem &#39;wx_pay&#39;</code><br>在config/initializers/下的ruby文件中添加配置<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">"wx_pay"</span></span><br><span class="line"></span><br><span class="line"><span class="constant">WxPay</span>.appid = <span class="string">'微信应用id'</span></span><br><span class="line"><span class="constant">WxPay</span>.mch_id = <span class="string">'微信商户id'</span></span><br><span class="line"><span class="constant">WxPay</span>.key = <span class="string">"微信应用的key"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文档地址: https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=4_3</span></span><br><span class="line"><span class="comment"># 从微信平台上下载的p12证书的默认密码为你的商户id</span></span><br><span class="line"><span class="comment"># 重设密码: Mac上可以先用密钥工具打开p12证书 然后再导出 并且添加新的密码</span></span><br><span class="line"><span class="constant">WxPay</span>.set_apiclient_by_pkcs12(<span class="constant">File</span>.read(<span class="string">"<span class="subst">#&#123;<span class="constant">Rails</span>.root&#125;</span>/p12文件的路径"</span>), <span class="string">"p12文件的密码"</span>)</span><br></pre></td></tr></table></figure></p>
+<p><strong>逻辑代码</strong></p>
+<p>在controllers中添加生成订单的逻辑代码<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_wx_order</span></span></span><br><span class="line">	params = &#123;</span><br><span class="line">	  body             <span class="symbol">:</span> <span class="string">'订单详情'</span>,</span><br><span class="line">	  out_trade_no     <span class="symbol">:</span> <span class="string">'网站订单编号'</span>,</span><br><span class="line">	  spbill_create_ip <span class="symbol">:</span> <span class="string">'买家的ip'</span>,</span><br><span class="line">	  notify_url       <span class="symbol">:</span> <span class="string">'服务器接受微信订单通知的地址'</span>, <span class="comment"># 需要为POST请求地址</span></span><br><span class="line">	  trade_type       <span class="symbol">:</span> <span class="string">'APP'</span>,                          <span class="comment"># could be "JSAPI", "NATIVE" or "APP",</span></span><br><span class="line">	  total_fee        <span class="symbol">:</span> <span class="number">1</span>,                              <span class="comment"># 以分为单位1代表1分钱，即0.01元</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># 请求微信的服务器，并且产生一个微信订单</span></span><br><span class="line">	r = <span class="constant">WxPay::Service</span>.invoke_unifiedorder params</span><br><span class="line">	<span class="comment">#=&gt; &#123;</span></span><br><span class="line">	<span class="comment">#     "return_code" =&gt; "SUCCESS",</span></span><br><span class="line">	<span class="comment">#     "return_msg"  =&gt; "OK",</span></span><br><span class="line">	<span class="comment">#     "appid"       =&gt; "YOUR APPID",</span></span><br><span class="line">	<span class="comment">#     "mch_id"      =&gt; "YOUR MCH_ID",</span></span><br><span class="line">	<span class="comment">#     "sign"        =&gt; "623AE90C9679729DDD7407DC7A1151B2",</span></span><br><span class="line">	<span class="comment">#     "result_code" =&gt; "SUCCESS",</span></span><br><span class="line">	<span class="comment">#     "prepay_id"   =&gt; "wx2014111104255143b7605afb0314593866", # #支付码，相当于该订单的标示Id</span></span><br><span class="line">	<span class="comment">#     "nonce_str"   =&gt; "8RN7YfTZ3OUgWX5e",                     # #机生成码，需要在客户端请求的时候带上</span></span><br><span class="line">	<span class="comment">#     "code_url"    =&gt; "weixin://"</span></span><br><span class="line">	<span class="comment">#     "trade_type"  =&gt; "NATIVE"</span></span><br><span class="line">	<span class="comment">#   &#125;</span></span><br><span class="line">	<span class="keyword">if</span> r.success?</span><br><span class="line">	    <span class="comment"># 生成手机客户端向微信服务器请求时需要的参数</span></span><br><span class="line">	    client_req = <span class="constant">WxPay::Service::</span>generate_app_pay_req(&#123;</span><br><span class="line">	        <span class="symbol">prepayid:</span> r[<span class="string">"prepay_id"</span>],</span><br><span class="line">	        <span class="symbol">noncestr:</span> r[<span class="string">"nonce_str"</span>]</span><br><span class="line">	        &#125;)</span><br><span class="line">	   <span class="comment">#=&gt;&#123;</span></span><br><span class="line">	   <span class="comment">#      appid     : '应用id',</span></span><br><span class="line">	   <span class="comment">#      partnerid : '商户id',</span></span><br><span class="line">	   <span class="comment">#      noncestr  : '1101000000140429eb40476f8896f4c9',</span></span><br><span class="line">	   <span class="comment">#      prepayid  : '1101000000140415649af9fc314aa427',</span></span><br><span class="line">	   <span class="comment">#      timestamp : '1398746574',</span></span><br><span class="line">	   <span class="comment">#      package   : 'Sign=WXPay',                       # 微信要求的固定参数</span></span><br><span class="line">	   <span class="comment">#      sign      : '根据参数生成的sign'                # 生成规则参考微信文档，wx_pay会自动生成, 不用手动生成</span></span><br><span class="line">	   <span class="comment">#&#125;</span></span><br><span class="line">	    render <span class="symbol">json:</span> client_req</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	    render <span class="symbol">json:</span> &#123;<span class="symbol">message:</span> <span class="string">"error"</span>&#125;</span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>处理微信的回调</strong></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">callback</span></span></span><br><span class="line">	result = <span class="constant">Hash</span>.from_xml(request.body.read)[<span class="string">"xml"</span>]</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># 验证签名是否是正确的</span></span><br><span class="line">	<span class="keyword">if</span> <span class="constant">WxPay::Sign</span>.verify?(result)</span><br><span class="line">	    <span class="comment"># 为了更安全的考虑 可以让服务器再向微信服务器查询订单的状态</span></span><br><span class="line">	    <span class="comment"># api地址: https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_2&amp;index=4</span></span><br><span class="line">	    orderStatus = <span class="constant">WxPay::Service</span>.order_query(&#123;</span><br><span class="line">	        <span class="symbol">out_trade_no:</span> <span class="string">"商户订单号"</span></span><br><span class="line">	        &#125;)</span><br><span class="line">	    <span class="keyword">if</span> orderStatus.success?</span><br><span class="line">	        render <span class="symbol">:xml</span> =&gt; &#123;<span class="symbol">return_code:</span> <span class="string">"SUCCESS"</span>&#125;.to_xml(<span class="symbol">root:</span> <span class="string">'xml'</span>, <span class="symbol">dasherize:</span> <span class="keyword">false</span>)</span><br><span class="line">	    <span class="keyword">end</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	    render <span class="symbol">:xml</span> =&gt; &#123;<span class="symbol">return_code:</span> <span class="string">"FAIL"</span>, <span class="symbol">return_msg:</span> <span class="string">"签名失败"</span>&#125;.to_xml(<span class="symbol">root:</span> <span class="string">'xml'</span>, <span class="symbol">dasherize:</span> <span class="keyword">false</span>)</span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="u5BA2_u6237_u7AEF_3A_iOS_+_Swift_+_Alamofire"><a href="#u5BA2_u6237_u7AEF_3A_iOS_+_Swift_+_Alamofire" class="headerlink" title="客户端: iOS + Swift + Alamofire"></a>客户端: iOS + Swift + Alamofire</h3><hr>
+<p>为了安全起见，将预订单生成的逻辑，全都放在了服务器，所以客户端整体上在发起支付的过程中没有做太多的工作，就是将服务器生成的支付信息，直接再转交给微信服务器就可以了。</p>
+<p><strong>配置</strong></p>
+<ol>
+<li>将下载的Sdk文件中的所有头文件与源文件拖入到项目中</li>
+<li>bridge文件中添加: <code>#import &quot;WXApi.h&quot;</code></li>
+<li>AppDelegate.swift的载入方法中添加: <code>WXApi.registerApp(&quot;appid&quot;)</code></li>
+<li>配置应用的scheme: wx+微信分配的Appid(没有+号)</li>
+</ol>
+<p><strong>逻辑代码</strong><br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.request(.<span class="type">POST</span>, <span class="string">"create_wx_order"</span>, parameters: parameter!, headers: headers).responseJSON &#123; (response) -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">	<span class="keyword">let</span> result = response.result.value!</span><br><span class="line">	<span class="keyword">let</span> req = <span class="type">PayReq</span>()</span><br><span class="line">	req.partnerId = result[<span class="string">"partnerid"</span>] <span class="keyword">as</span>! <span class="type">String</span></span><br><span class="line">	req.prepayId = result[<span class="string">"prepayid"</span>] <span class="keyword">as</span>! <span class="type">String</span></span><br><span class="line">	req.package = result[<span class="string">"package"</span>] <span class="keyword">as</span>! <span class="type">String</span></span><br><span class="line">	req.nonceStr = result[<span class="string">"noncestr"</span>] <span class="keyword">as</span>! <span class="type">String</span></span><br><span class="line">	req.timeStamp = <span class="type">UInt32</span>(result[<span class="string">"timestamp"</span>] <span class="keyword">as</span>! <span class="type">String</span>)!</span><br><span class="line">	req.sign = result[<span class="string">"sign"</span>] <span class="keyword">as</span>! <span class="type">String</span></span><br><span class="line">	<span class="type">WXApi</span>.sendReq(req) <span class="comment">// 发起支付请求</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>处理微信的回调</strong><br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加一个WXApiManager.swift 仿照微信提供的Demo</span></span><br><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">let</span> sharedInstance = <span class="type">WXApiManager</span>()</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">WXApiManagerDelegate</span></span>&#123;</span><br><span class="line">	<span class="func"><span class="keyword">func</span> <span class="title">weixinPaySuccess</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="func"><span class="keyword">func</span> <span class="title">weixinPayFailed</span><span class="params">(errorCod: Int32, andErrorMessage msg: String!)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WXApiManager</span> : <span class="title">NSObject</span>, <span class="title">WXApiDelegate</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 实现单例方法</span></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">var</span> <span class="title">sharedManager</span> : <span class="title">WXApiManager</span></span>&#123;</span><br><span class="line">	    <span class="keyword">return</span> sharedInstance</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">internal</span> <span class="keyword">var</span> delegate : <span class="type">WXApiManagerDelegate</span>?</span><br><span class="line">	<span class="keyword">public</span> <span class="func"><span class="keyword">func</span> <span class="title">onResp</span><span class="params">(resp: BaseResp!)</span></span>&#123;</span><br><span class="line">	    <span class="keyword">if</span> resp.isKindOfClass(<span class="type">PayResp</span>.<span class="keyword">self</span>) &#123;</span><br><span class="line">	        <span class="keyword">switch</span>(resp.errCode)&#123;</span><br><span class="line">	        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">	            delegate?.weixinPaySuccess()</span><br><span class="line">	            <span class="keyword">break</span></span><br><span class="line">	        <span class="keyword">case</span> -<span class="number">1</span>:</span><br><span class="line">	            delegate?.weixinPayFailed(resp.errCode, andErrorMessage: resp.errStr)</span><br><span class="line">	            <span class="keyword">break</span></span><br><span class="line">	        <span class="keyword">case</span> -<span class="number">2</span>:</span><br><span class="line">	            delegate?.weixinPayFailed(resp.errCode, andErrorMessage: resp.errStr)</span><br><span class="line">	            <span class="keyword">break</span></span><br><span class="line">	        <span class="keyword">default</span>:</span><br><span class="line">	            delegate?.weixinPayFailed(resp.errCode, andErrorMessage: resp.errStr)</span><br><span class="line">	            <span class="keyword">break</span></span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在AppDelegate将微信的回调传给WXApiManager</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">application</span><span class="params">(app: UIApplication, openURL url: NSURL, options: [String : AnyObject])</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">	<span class="type">WXApi</span>.handleOpenURL(url, delegate: <span class="type">WXApiManager</span>.sharedManager)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上就是客户端与服务器的支付工作，关于订单如何处理，订单与支付的状态这些，就得按照业务逻辑，单独做处理了。但是与微信的交互基本上就是这些，目前还没有发现比较难搞的坑。而且准备阶段的申请，也比较快，没有想象中的那么久，基本上四五个工作日下来，如果资料齐全就可以开通支付功能。</p>
+<h2 id="u652F_u4ED8_u5B9D"><a href="#u652F_u4ED8_u5B9D" class="headerlink" title="支付宝"></a>支付宝</h2><p><strong>参考地址</strong></p>
+<ul>
+<li><a href="https://doc.open.alipay.com/doc2/detail.htm?spm=0.0.0.0.lAKmoy&amp;treeId=44&amp;articleId=103921&amp;docType=1" target="_blank" rel="external">开通准备</a></li>
+<li><a href="https://doc.open.alipay.com/doc2/detail?treeId=59&amp;articleId=103563&amp;docType=1" target="_blank" rel="external">支付宝文档</a></li>
+<li><a href="https://github.com/chloerei/alipay" target="_blank" rel="external">alipay</a></li>
+<li><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="external">Alamofire</a></li>
+</ul>
+<h3 id="u6211_u9760"><a href="#u6211_u9760" class="headerlink" title="我靠"></a>我靠</h3><p>不得不承认支付宝的服务确实开通的比较早，因为单单接入教程与应用的创建入口，就有两三个。基本上都是一路试过来才能知道，到底哪个才是正确入口。所以重点终于来了，</p>
+<p><strong>进入支付宝的正确姿势:</strong></p>
+<ol>
+<li>生成公钥与密钥: <a href="https://doc.open.alipay.com/doc2/detail.htm?spm=0.0.0.0.O1c6AE&amp;treeId=44&amp;articleId=103242&amp;docType=1" target="_blank" rel="external">文档地址</a></li>
+<li><strong>上传生成的公钥</strong>: <ol>
+<li>上传的是上一步生成的自己的公钥。</li>
+<li>去掉第一行与最后一行，并且上传的时候，需要把行尾的回车符也都删除。</li>
+<li>上传的地址: <strong>合作伙伴密钥</strong>，这一步很关键，之间我只上传了<strong>应用详情</strong>下面的公钥，<strong>调试不通</strong>，后来上传了合作伙伴的密钥，才调试通过。</li>
+</ol>
+</li>
+<li><strong>支付宝的公钥</strong>: <strong>不能</strong>使用应用详情下的支付宝公钥，需要用支付宝Demo中提供的公钥。</li>
+</ol>
+<p>如果这几点能搞对的话，剩下就是力气活了。</p>
+<h3 id="u670D_u52A1_u5668_3A_Ruby_On_Rails"><a href="#u670D_u52A1_u5668_3A_Ruby_On_Rails" class="headerlink" title="服务器: Ruby On Rails"></a>服务器: Ruby On Rails</h3><hr>
+<p><strong>配置</strong></p>
+<p>使用了Gem: <a href="https://github.com/chloerei/alipay" target="_blank" rel="external">alipay</a><br>在Gemfile中添加:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="string">'alipay'</span></span><br></pre></td></tr></table></figure></p>
+<p>在config/initializers/下的ruby文件中添加配置<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">Alipay</span>.pid = <span class="string">'商户创'</span></span><br><span class="line"><span class="constant">Alipay</span>.key = &lt;&lt;-<span class="constant">EOF</span></span><br><span class="line">直接将私钥的所有内容拷贝到这里 包括第一行与最后一行</span><br><span class="line"><span class="constant">EOF</span></span><br><span class="line"><span class="constant">Alipay</span>.sign_type = <span class="string">'RSA'</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>逻辑代码</strong></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_alipay</span></span></span><br><span class="line">	<span class="comment"># 这个方法会生成客户端向支付宝发送请求时候的所有参数</span></span><br><span class="line">	<span class="comment"># 并且将这些参数用你的私钥生成sign</span></span><br><span class="line">	<span class="comment"># 最后把这些参数合起来组合成一个字符串</span></span><br><span class="line">	<span class="comment"># 客户端只需要把这个字符串直接提交至支付宝的SDK即可</span></span><br><span class="line">	str = <span class="constant">Alipay::Mobile::Service</span>.mobile_securitypay_pay_string(</span><br><span class="line">	  out_trade_no <span class="symbol">:</span> <span class="string">'本地的订单编号'</span>,</span><br><span class="line">	  notify_url   <span class="symbol">:</span> <span class="string">'回调地址'</span>,</span><br><span class="line">	  subject      <span class="symbol">:</span> <span class="string">'订单信息'</span>,</span><br><span class="line">	  total_fee    <span class="symbol">:</span> <span class="string">'0.01'</span>            <span class="comment"># 以元为单位，0.01为1分</span></span><br><span class="line">	)</span><br><span class="line">	render <span class="symbol">json:</span> &#123;<span class="symbol">message:</span> str&#125;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><strong>处理支付宝的回调</strong><br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">notify_params = params.except(*request.path_parameters.keys)</span><br><span class="line"><span class="keyword">if</span> <span class="constant">Alipay::Notify</span>.verify?(notify_params)</span><br><span class="line">	<span class="keyword">return</span> render <span class="symbol">text:</span> <span class="string">"success"</span> <span class="comment">#  必须向支付宝发送纯文本的"success"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="constant">Rails</span>.logger.info <span class="string">"-------------- failure"</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>可能会遇到的问题</strong></p>
+<ul>
+<li>Rails报错<code>SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed</code>，这是因为<code>Alipay::Notify.verify</code>会向支付宝发送https请求来验证订单是否真的完成了，而ruby可能会找不到SSL的证书，解决的办法就是下载SSL证书，并且正确声明证书的地址。<a href="http://stackoverflow.com/questions/4528101/ssl-connect-returned-1-errno-0-state-sslv3-read-server-certificate-b-certificat" target="_blank" rel="external">参考链接</a><ul>
+<li>重新安装rvm的openssl并且重新安装ruby</li>
+<li>pkg install openssl</li>
+<li>rvm reinstall 2.1.2</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>向支付宝的验证必须在1分钟之内完成，超过一分钟，返回结果就会变成false，而且只能验证一次，只要成功验证一次返回了true，以后再去验证的时候也是只返回false。</li>
+</ul>
+<h3 id="u5BA2_u6237_u7AEF_3A_iOS_+_Swift_+_Alamofire-1"><a href="#u5BA2_u6237_u7AEF_3A_iOS_+_Swift_+_Alamofire-1" class="headerlink" title="客户端: iOS + Swift + Alamofire"></a>客户端: iOS + Swift + Alamofire</h3><hr>
+<p>同微信的实现逻辑类似，也是客户端只是把服务器拼好的请求信息，直接请求出去，就可以了。</p>
+<p><strong>配置</strong></p>
+<ol>
+<li>添加需要的库文件<a href="https://doc.open.alipay.com/doc2/detail.htm?spm=0.0.0.0.5Q5ik4&amp;treeId=59&amp;articleId=103676&amp;docType=1" target="_blank" rel="external">参考链接</a></li>
+<li>配置应用的scheme</li>
+</ol>
+<p><strong>逻辑代码</strong></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.request(.<span class="type">POST</span>, <span class="string">"create_alipay_order"</span>, parameters: parameter!, headers: headers).responseJSON &#123; (response) -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">	<span class="type">AlipaySDK</span>.defaultService().payOrder(result[<span class="string">"message"</span>] <span class="keyword">as</span>! <span class="type">String</span>, fromScheme: <span class="string">"应用的scheme"</span>, callback: &#123; (payResult) -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">	    <span class="comment">// 如果应用没有被kill掉，支付结果会回调到这里来</span></span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>处理支付宝的回调</strong><a href="https://doc.open.alipay.com/doc2/detail.htm?spm=0.0.0.0.HpJm5b&amp;treeId=59&amp;articleId=103660&amp;docType=1" target="_blank" rel="external">参考链接</a><br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">application</span><span class="params">(app: UIApplication, openURL url: NSURL, options: [String : AnyObject])</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">	<span class="type">AlipaySDK</span>.defaultService().processOrderWithPaymentResult(url) &#123; (payResult) -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">	    <span class="comment">// 如果支付过程中被kill掉，就需要在这里进行提示处理</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上就是支付宝的接入过程，虽然代码没有多少，主要经历都是浪费在了支付宝网站上的配置，需要在正确的地方上传正确格式的公钥。</p>
+<h3 id="Ping++"><a href="#Ping++" class="headerlink" title="Ping++"></a>Ping++</h3><hr>
+<p>因为我只是尝试了Ping++的测试模式，具体的真是环境怎么样，我也不得而知，但就测试接入的流程，确实很简单，所以就只说一下我的看法:</p>
+<ol>
+<li><strong>难易程度</strong>: 真的很方便，几行代码就可以搞定，但我只是在<strong>测试模式</strong>模式下，正式环境会不会更复杂，我也不得而知。</li>
+<li><strong>安全性</strong>: 需要把自己的密钥上传至Ping++的服务，但我并没有觉得这样会很危险，反而相信他们可以做的更专业。</li>
+<li><strong>为什么放弃</strong>: 主要是不想让第三方看到自己的交易记录。</li>
+</ol>
+<h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><hr>
+<p>总体来说，如果配置都没有问题，使用Gem包，接入还是很方便的。<br>完。</p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/21/2016-02-15/" rel="next" title="Mon Feb 15 2016 00:00:00 GMT+0800 (CST)">
+                <i class="fa fa-chevron-left"></i> Mon Feb 15 2016 00:00:00 GMT+0800 (CST)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/21/ImageMagick/" rel="prev" title="ImageMagick">
+                ImageMagick <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/21/2016-01-06/"
+           data-title="Wed Jan 06 2016 00:00:00 GMT+0800 (CST)" data-url="http://yoursite.com/2016/11/21/2016-01-06/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Jason Tai" />
+          <p class="site-author-name" itemprop="name">Jason Tai</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#header_3A_iOS__u5FAE_u4FE1_u652F_u4ED8_u4E0E_u652F_u4ED8_u5B9D_u7684_u96C6_u6210"><span class="nav-number">1.</span> <span class="nav-text">header: iOS 微信支付与支付宝的集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5FAE_u4FE1"><span class="nav-number">2.</span> <span class="nav-text">微信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u670D_u52A1_u5668_3A_Ruby_on_Rails"><span class="nav-number">2.1.</span> <span class="nav-text">服务器: Ruby on Rails</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5BA2_u6237_u7AEF_3A_iOS_+_Swift_+_Alamofire"><span class="nav-number">2.2.</span> <span class="nav-text">客户端: iOS + Swift + Alamofire</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u652F_u4ED8_u5B9D"><span class="nav-number">3.</span> <span class="nav-text">支付宝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6211_u9760"><span class="nav-number">3.1.</span> <span class="nav-text">我靠</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u670D_u52A1_u5668_3A_Ruby_On_Rails"><span class="nav-number">3.2.</span> <span class="nav-text">服务器: Ruby On Rails</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5BA2_u6237_u7AEF_3A_iOS_+_Swift_+_Alamofire-1"><span class="nav-number">3.3.</span> <span class="nav-text">客户端: iOS + Swift + Alamofire</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ping++"><span class="nav-number">3.4.</span> <span class="nav-text">Ping++</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u603B_u7ED3"><span class="nav-number">3.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason Tai</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"tjcjc"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
