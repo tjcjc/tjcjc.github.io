@@ -23,7 +23,175 @@
           <a class="tab-item no-transition replace" href="#page-bbf">
             丙泊酚
           </a>
+          <a class="tab-item no-transition replace" href="#page-gap">
+            GAP
+          </a>
       </nav>
+    <div class="page page-bbf" id="page-bbf">
+        <div class="content">
+            <div class="list-block">
+                <ul>
+                    <!-- Text inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">病人体重</div>
+                                <div class="item-input">
+                                    <input type="number" placeholder="病人体重" id="cur-KG">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">负荷剂量</div>
+                                <div class="item-title label" id="fuhe-val">0</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">维持剂量</div>
+                                <div class="item-title label" id="weichi-val">0</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-block">
+                <div class="row">
+                    <div class="col-50"><a onclick="getKG()" class="button button-big button-fill button-success">计算</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page page-current page-yidao" id="page-gap">
+        <header class="bar bar-nav">
+            <h1 class="title">GAP和GAPratio在脓毒症的应用</h1>
+        </header>
+        <div class="content">
+            <div class="list-block">
+                <ul>
+                    <!-- Text inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">PaO2(mmHg)</div>
+                                <div class="item-input">
+                                    <input type="number" placeholder="PaO2" id="pao2">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">PaCO2(mmHg)</div>
+                                <div class="item-input">
+                                    <input type="number" placeholder="PaCO2" id="paco2">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">SaO2(%)</div>
+                                <div class="item-input">
+                                    <input type="number" placeholder="SaO2" id="sao2">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">hb(g/dL)</div>
+                                <div class="item-input">
+                                    <input type="number" placeholder="Hb" id="hb">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">Lac(mmol/L)</div>
+                                <div class="item-input">
+                                    <input type="number" placeholder="Lac" id="lac">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">PcvO2(mmHg)</div>
+                                <div class="item-input">
+                                    <input type="number" placeholder="PcvO2" id="pcvo2">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">PcvCO2(mmHg)</div>
+                                <div class="item-input">
+                                    <input type="number" placeholder="PcvCO2" id="pcvco2">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">ScvO2(%)</div>
+                                <div class="item-input">
+                                    <input type="number" placeholder="ScvO2" id="scvo2">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                            <div class="item-title label">是否有容量性反应</div>
+                                <div class="item-input">
+                                  <label class="label-switch">
+                                    <input type="checkbox" id = "switch">
+                                    <div class="checkbox"></div>
+                                </label>
+                            </div>
+                        </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-block">
+                <div class="row">
+                    <div class="col-50"><a onclick="getGapSubmit()" class="button button-big button-fill button-success">计算</a></div>
+                </div>
+            </div>
+            <div class="content-block">
+                <div class="row">
+                    <div class="col-100">
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">计算结果</div>
+                                <div class="item-title" id="calculat" style="color: green"></div>
+                                <br>
+                                <div class="item-title label">如何操作</div>
+                                <div class="item-title" id="how" style="color: red"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="page page-current page-yidao" id="page-yidao">
         <div class="content">
             <div class="list-block">
@@ -82,46 +250,6 @@
             <div class="content-block">
                 <div class="row">
                     <div class="col-50"><a onclick="getSubmit()" class="button button-big button-fill button-success">计算</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="page page-bbf" id="page-bbf">
-        <div class="content">
-            <div class="list-block">
-                <ul>
-                    <!-- Text inputs -->
-                    <li>
-                        <div class="item-content">
-                            <div class="item-inner">
-                                <div class="item-title label">病人体重</div>
-                                <div class="item-input">
-                                    <input type="number" placeholder="病人体重" id="cur-KG">
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item-content">
-                            <div class="item-inner">
-                                <div class="item-title label">负荷剂量</div>
-                                <div class="item-title label" id="fuhe-val">0</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item-content">
-                            <div class="item-inner">
-                                <div class="item-title label">维持剂量</div>
-                                <div class="item-title label" id="weichi-val">0</div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="content-block">
-                <div class="row">
-                    <div class="col-50"><a onclick="getKG()" class="button button-big button-fill button-success">计算</a></div>
                 </div>
             </div>
         </div>
@@ -242,6 +370,60 @@
 
         $("#picker2").val("0 : 0")
         $("#picker2").picker("setValue", ["0", ":", "0"])
+        var getGapSubmit = function(){
+            var luc = parseFloat($("#luc").val())
+            var pao2 = parseFloat($("#pao2").val())
+            var pcvo2 = parseFloat($("#pcvo2").val())
+            var pcvco2 = parseFloat($("#pcvco2").val())
+            var paco2 = parseFloat($("#paco2").val())
+            var scvo2 = parseFloat($("#scvo2").val())
+            var sao2 = parseFloat($("#sao2").val())
+            var hb = parseFloat($("#hb").val())
+            var rl = $("#switch")[0].checked
+
+            var p = (pcvco2 - paco2)
+            var c = (hb * 1.34 * (sao2 / 100 - scvo2 / 100) + 0.003 * (pao2 - pcvo2))
+            var pc = p / c
+            var r = ""
+
+            if (( pc >= 1.8 ) || ( luc > 2 ) ){
+                if ( scvo2 < 70 ) {
+                    r = r + "提高DO2</br>"
+                    console.log("")
+                    if ( p < 6 ){
+                        if ( sao2 < 95 ){
+                            r = r + "氧疗增加PEEP</br>"
+                        }else{
+                            r = r + "输注血红蛋白</br>"
+                        }
+                    }else{
+                        r =r + "提高CO</br>"
+                        if (rl){
+                            r = r + "补液</br>"
+                        }else{
+                            r = r + "多巴酚丁胺</br>"
+                        }
+                    }
+                }else{
+                    if ( p > 6){
+                        r =r + "提高CO</br>"
+                        if (rl){
+                            r = r + "补液</br>"
+                        }else{
+                            r = r + "多巴酚丁胺</br>"
+                        }
+                    }else{
+                        r = r + "调节微循环可能无效(微循环障碍/线粒体障碍)</br>"
+                    }
+                }
+            } else {
+                r = r + "无需介入"
+            }
+
+            console.log(rl)
+            $("#calculat").html("GAP = " + p + "</br>" + "C(a-cv)O2 = " + c + "</br>" + "P(cv-a)CO2/C(a-cv)O2 = " + (p / c))
+            $("#how").html(r)
+        }
 </script>
 </body>
 
